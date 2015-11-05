@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  root 'application#welcome'
+  get '/amiloggedin' => 'application#amiloggedin'
+  post '/users' => 'users#create'
+  post '/session' => 'session#create'
+  post '/session' => 'session#destroy'
+
   resources :comments
   resources :articles
   resources :users
