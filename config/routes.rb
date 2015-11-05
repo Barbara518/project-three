@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post '/users' => 'users#create'
   post '/session' => 'session#create'
   post '/session' => 'session#destroy'
+  post '/article/:id/comments' => 'comments#create'
 
   resources :comments
   resources :articles

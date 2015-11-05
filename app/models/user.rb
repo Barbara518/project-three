@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   validates :password, length: {minimum: 8, allow_nil: true}
 
+  has_many :articles
+  has_many :comments, through: :articles
+
 end
