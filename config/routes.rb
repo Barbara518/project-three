@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post '/article/:id/comments' => 'comments#create'
 
   resources :comments
-  resources :articles
+  resources :articles, defaults: { format: :json }
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
