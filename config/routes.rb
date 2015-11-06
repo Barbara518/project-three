@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   root 'application#welcome'
+  get 'application/angular'
   get '/amiloggedin' => 'application#amiloggedin'
   post '/users' => 'users#create'
   post '/session' => 'session#create'
   post '/session' => 'session#destroy'
   post '/article/:id/comments' => 'comments#create'
-
+  get  '/articles/new' => 'articles#new'
   resources :comments, defaults: { format: :json }
-  resources :articles, defaults: { format: :json }
+  resources :articles, except: [:new], defaults: { format: :json }
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
