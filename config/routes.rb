@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post '/session' => 'session#destroy'
   post '/article/:id/comments' => 'comments#create'
 
-  resources :comments
+  resources :comments, defaults: { format: :json }
   resources :articles, defaults: { format: :json }
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
