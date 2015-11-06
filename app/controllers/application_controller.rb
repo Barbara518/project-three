@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :null_session
   helper_method :current_user
   helper_method :all_users
+  helper_method :redirect_local
+
+  def angular
+    render '/articles/new', layout: 'angular'
+  end
 
   def amiloggedin
     @ammiloggedin = !!session[:current_user_id]
@@ -23,6 +28,10 @@ class ApplicationController < ActionController::Base
 
   def all_users
     @all_users = User.all
+  end
+
+  def redirect_local
+    redirect_to articles_path
   end
 
 end
