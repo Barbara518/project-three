@@ -9,9 +9,9 @@ skip_before_action :verify_authenticity_token
   end
 
   def create
-  @article = current_user.articles.new(article_params)
+    @article = current_user.articles.new(article_params)
 
-  if @article.save
+    if @article.save
 
     else
       flash[:message] = @article.errors.full_messages.to_sentence
