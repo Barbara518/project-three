@@ -1,5 +1,4 @@
 json.user current_user.name
-json.users all_users
 
 json.articles(@articles) do |art|
 
