@@ -4,6 +4,10 @@ skip_before_action :verify_authenticity_token
     @articles = Article.all
   end
 
+  def new
+    render articles_new_path
+  end
+
   def create
   @article = current_user.articles.new(article_params)
 
