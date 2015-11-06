@@ -6,6 +6,15 @@ var app = angular.module('travelApp', []);
 /////////////////////////////////////////////////////////////////////
 app.controller('ArticlesController', ['$http', function($http) {
   var controller = this;
+  controller.current_user = "bar"
+  console.log(controller);
+
+  /// Get Current User from /amiloggedin
+  $http.get('/amiloggedin').success(function (data){
+    controller.current_user = data;
+    console.log(data);
+  });
+
   //// Get articles
   this.getArticles = function() {
 
@@ -13,26 +22,27 @@ app.controller('ArticlesController', ['$http', function($http) {
       controller.articles = data.articles
     });
 
-  }
+  };
   this.getArticles();
 
   this.createArticle = function () {
-
-    $http.post('/new', {
+    console.log("In createArticle")
+    $http.post('/articles', {
       article: {
-        user: //current user,
+        user: controller.current_user.id,
         body: this.newArticleBody,
-        location: //info from google maps api,
-        latitude: //info from google maps api,
-        longitude: //info from google maps api
+        location: this.newArticleLocation,
+        latitude: this.newArticleLattitude,
+        longitude: this.newArticleLongitude
       }
 
-    }]);
+    }).success(function(data){
+      console.log(data);
+    })
 
   }
 
 }]);
-
 
 
 
