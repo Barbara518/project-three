@@ -1,11 +1,10 @@
 <!-- google map -->
 
-
 <main ng-controller="ArticleController as articleCtrl">
 
-  <div ng-repeat = "article in articleCtrl.article">
+  <div ng-repeat = "article in articleCtrl.articles">
     <h3><a href="">{{article.location}}</a></h3>
     <span>{{article.user}}</span>
   </div>
-  
+
 </main>
