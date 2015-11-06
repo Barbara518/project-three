@@ -12,7 +12,6 @@ app.controller('ArticlesController', ['$http', function($http) {
   /// Get Current User from /amiloggedin
   $http.get('/amiloggedin').success(function (data){
     controller.current_user = data;
-    console.log(data);
   });
 
   //// Get articles
@@ -28,15 +27,9 @@ app.controller('ArticlesController', ['$http', function($http) {
   this.createArticle = function () {
     console.log("In createArticle")
     $http.post('/articles', {
-      article: {
-        user: controller.current_user.id,
-        body: this.newArticleBody,
-        location: this.newArticleLocation,
-        latitude: this.newArticleLattitude,
-        longitude: this.newArticleLongitude
-      }
-
+      article: controller.newArticle
     }).success(function(data){
+      controller.newArticle = {};
       console.log(data);
     })
 
