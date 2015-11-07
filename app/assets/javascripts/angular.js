@@ -6,8 +6,6 @@ var app = angular.module('travelApp', []);
 /////////////////////////////////////////////////////////////////////
 app.controller('ArticlesController', ['$http', function($http) {
   var controller = this;
-  controller.current_user = "bar"
-  console.log(controller);
 
   /// Get Current User from /amiloggedin
   $http.get('/amiloggedin').success(function (data){
@@ -15,22 +13,15 @@ app.controller('ArticlesController', ['$http', function($http) {
   });
 
   //// Get articles
-
-
     $http.get('/articles/all_articles').success(function(data) {
       controller.articles = data.articles
     });
 
-
-
-
   this.createArticle = function () {
-    console.log("In createArticle")
     $http.post('/articles', {
       article: controller.newArticle
     }).success(function(data){
       controller.newArticle = {};
-      console.log(data);
     })
 
   }
@@ -42,13 +33,18 @@ app.controller('ArticlesController', ['$http', function($http) {
 ///////////////////////////////////////////////////////////////////////
 //////////////////////////Comment Controller//////////////////////////
 /////////////////////////////////////////////////////////////////////
-
+​
 app.controller('CommentsController', ['$http', function($http) {
   var controller = this;
-
-    //// Create Comment
-    this.createComment = $http.post('/articles/:id/comment').success(function(data) {
-    //// Will post the comment
-  });
-
+​
+  // Get current_user from amiloggedin
+  $http.get('/amiloggedin').success(function (data){
+    controller.current_user = data;
+    // Create Comment Will post the comment
+    this.createComment = $http.post('/articles/:id/comment')
+    .success(function(data) {
+      controller.newComment = {};
+       console.log(data);
+    })
+  })
 }]);
