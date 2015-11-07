@@ -1,6 +1,11 @@
 class ArticlesController < ApplicationController
 skip_before_action :verify_authenticity_token
+
   def index
+  
+  end
+
+  def all_articles
     @articles = Article.all
   end
 
