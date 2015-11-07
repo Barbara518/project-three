@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   post '/session' => 'session#create'
   post '/session' => 'session#destroy'
   post '/article/:id/comments' => 'comments#create'
+  get  '/articles' => 'articles#index'
+  get  '/articles/all_articles' => 'articles#all_articles', defaults: { format: :json }
   get  '/articles/new' => 'articles#new'
   resources :comments, defaults: { format: :json }
-  resources :articles, except: [:new], defaults: { format: :json }
+  resources :articles, except: [:new, :index], defaults: { format: :json }
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

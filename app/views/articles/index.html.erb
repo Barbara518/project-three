@@ -1,0 +1,14 @@
+<!-- google map -->
+There is stuff here... well not yet!
+
+<main ng-controller="ArticlesController as articleCtrl">
+
+  <div ng-repeat = "article in articleCtrl.articles">
+    <span>  Location: {{article.location}} </span> </br>
+    <span>  Body: {{article.body}} </span> </br>
+      <span ng-repeat = "comment in article.comments">
+        <span>Comments: {{comment.body}}</span></br>  </span> </br>
+  <hr>
+  </div>
+
+</main>
