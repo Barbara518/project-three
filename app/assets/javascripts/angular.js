@@ -15,14 +15,14 @@ app.controller('ArticlesController', ['$http', function($http) {
   });
 
   //// Get articles
-  this.getArticles = function() {
 
-    $http.get('/articles').success(function(data) {
+
+    $http.get('/articles/all_articles').success(function(data) {
       controller.articles = data.articles
     });
 
-  };
-  this.getArticles();
+
+
 
   this.createArticle = function () {
     console.log("In createArticle")
