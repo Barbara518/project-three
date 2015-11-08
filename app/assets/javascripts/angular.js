@@ -6,7 +6,6 @@ var app = angular.module('travelApp', []);
 /////////////////////////////////////////////////////////////////////
 app.controller('ArticlesController', ['$http', function($http) {
   var controller = this;
-  controller.current_user = "bar"
   console.log(controller);
 
   /// Get Current User from /amiloggedin
@@ -15,14 +14,11 @@ app.controller('ArticlesController', ['$http', function($http) {
   });
 
   //// Get articles
-
-
+  this.getArticles = function () {
     $http.get('/articles/all_articles').success(function(data) {
       controller.articles = data.articles
     });
-
-
-
+  }
 
   this.createArticle = function () {
     console.log("In createArticle")
@@ -35,6 +31,8 @@ app.controller('ArticlesController', ['$http', function($http) {
 
   }
 
+  this.getArticles()
+
 }]);
 
 
@@ -43,12 +41,34 @@ app.controller('ArticlesController', ['$http', function($http) {
 //////////////////////////Comment Controller//////////////////////////
 /////////////////////////////////////////////////////////////////////
 
-app.controller('CommentsController', ['$http', function($http) {
+app.controller('CommentsController', ['$http', '$scope', function($http, $scope) {
+  var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
   var controller = this;
-
+  var current_user;
+  console.log(authenticity_token)
     //// Create Comment
-    this.createComment = $http.post('/articles/:id/comment').success(function(data) {
-    //// Will post the comment
-  });
+  this.createComment = function () {
+
+    $http.get('/amiloggedin').success(function (data){
+      current_user = data;
+    });
+
+  // setTimeout(a, 4000)
+  //   var a =  function(){
+  //       console.log(current_user)
+  //     };
+
+    $http.post('/article/'+ $scope.$parent.article.id+'/comments', {
+      //include authenticity_token
+      authenticity_token: authenticity_token,
+      comment: {
+        body: this.newCommentBody
+      }
+    }).success(function(data){
+      console.log("added!!!")
+      //refresh transgression data once POST is complete
+      $scope.$parent.articleCtrl.getArticles();
+    });
+  }
 
 }]);
