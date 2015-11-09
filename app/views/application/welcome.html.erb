@@ -1,0 +1,19 @@
+<% if current_user %>
+<% redirect_local %>
+<%end%>
+<h1>Sign Up</h1>
+<form  action="<%= users_path %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+  <input type="email" name="user[email]" placeholder="your email"/><br/>
+  <input type="text"  name="user[name]" placeholder="your name"/><br/>
+  <input type="password_digest" name="user[password]" placeholder="password"><br/><br/>
+  <input type="submit" name="name" value="Sign Up">
+</form>
+
+<h1>Sign In</h1>
+<form  action="<%= session_path %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+  <input type="email" name="user[email]" placeholder="your email"/><br/>
+  <input type="password_digest" name="user[password]" placeholder="password"><br/><br/>
+  <input type="submit" name="name" value="Sign In">
+</form>
