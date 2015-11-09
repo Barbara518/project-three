@@ -4,7 +4,7 @@ var app = angular.module('travelApp', []);
 ///////////////////////////////////////////////////////////////////////
 //////////////////////////Article Controller//////////////////////////
 /////////////////////////////////////////////////////////////////////
-app.controller('ArticlesController', ['$http', function($http) {
+app.controller('ArticlesController', ['$http', '$scope', function($http, $scope) {
   var controller = this;
   console.log(controller);
 
@@ -17,6 +17,8 @@ app.controller('ArticlesController', ['$http', function($http) {
   this.getArticles = function () {
     $http.get('/articles/all_articles').success(function(data) {
       controller.articles = data.articles
+      controller.user = data.user
+      console.log(data.user);
     });
   }
 
@@ -29,6 +31,40 @@ app.controller('ArticlesController', ['$http', function($http) {
       console.log(data);
     })
 
+  }
+
+  this.editArticle = function (article) {
+    console.log(this.editedArticle)
+    console.log(this.editedArticle.date_traveled, article.date_traveled)
+
+    $http.patch('/articles/'+ article.id, {
+      article: {
+        location: this.editedArticle.location || article.location,
+        latitude: this.editedArticle.latitude || article.latitude,
+        longitude: this.editedArticle.longitude || article.longitude,
+        body: this.editedArticle.body || article.body,
+        date_traveled: this.editedArticle.date_traveled || article.date_traveled
+      }
+    }).success(function(data){
+      console.log("edited!!!")
+      //refresh transgression data once PATCH is complete
+      controller.getArticles();
+    });
+  }
+
+  this.deleteArticle = function (article) {
+    console.log(article)
+
+    $http.delete('/articles/'+ article.id, {
+
+      //include authenticity_token
+    }).success(function(data){
+      console.log("deleted!!!")
+      //refresh transgression data once PATCH is complete
+      // controller.getArticles();
+    }).error(function(data, status) {
+      console.log(status)
+    });
   }
 
   this.getArticles()
@@ -45,20 +81,10 @@ app.controller('CommentsController', ['$http', '$scope', function($http, $scope)
   var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
   var controller = this;
   var current_user;
-  console.log(authenticity_token)
     //// Create Comment
   this.createComment = function () {
 
-    $http.get('/amiloggedin').success(function (data){
-      current_user = data;
-    });
-
-  // setTimeout(a, 4000)
-  //   var a =  function(){
-  //       console.log(current_user)
-  //     };
-
-    $http.post('/article/'+ $scope.$parent.article.id+'/comments', {
+    $http.post('/articles/'+ $scope.$parent.article.id+'/comments', {
       //include authenticity_token
       authenticity_token: authenticity_token,
       comment: {
