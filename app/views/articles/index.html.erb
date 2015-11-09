@@ -2,22 +2,46 @@
 <main ng-controller="ArticlesController as articleCtrl">
 
   <div ng-repeat = "article in articleCtrl.articles">
+    <div ng-hide="editorEnabled">
     <span>  Location: {{article.location}} </span> </br>
     <span>  Body: {{article.body}} </span> </br>
-    <span>  Visited by: {{article.username}} </span></br>
-      <span> Comments: </span>
-      <span ng-repeat = "comment in article.comments">
-        <span>{{comment.body}} by {{comment.username}}</span></br> </span></br>
-  <div ng-controller="CommentsController as commentCtrl">
-  <form ng-submit="commentCtrl.createComment()">
-        <input type="text" ng-model="commentCtrl.newCommentBody"/>
-        <br/>
-        <input type="submit" value="Submit!" />
-        <br/>
-        <br/>
-    </form>
-  </div>
-  <hr>
+    <span>  Visited by: {{article.username}} on {{article.date_traveled | date: 'longDate'}} </span></br>
+    <div ng-show="articleCtrl.user === article.username">
+    <a href="#" ng-click="editorEnabled=!editorEnabled">Edit</a>
+    </div>
+    </div>
+    <div ng-show="editorEnabled">
+      <form ng-submit= "articleCtrl.editArticle(article)">
+        <input type="text" ng-model="articleCtrl.editedArticle.location"
+          placeholder="{{article.location}}"><br/>
+        <input type="text"  ng-model="articleCtrl.editedArticle.body"
+          placeholder="{{article.body}}"><br/>
+        <input type="text" ng-model="articleCtrl.editedArticle.latitude"
+          placeholder="{{article.latitude}}"><br/>
+        <input type="text"  ng-model="articleCtrl.editedArticle.longitude"
+          placeholder="{{article.longitude}}"><br/>
+        <input type="date"  ng-model="articleCtrl.editedArticle.date_traveled"
+          value="{{article.date_traveled | date:'yyyy-MM-dd' }}"><br/>
+        <input type="submit" value="Edit">
+      </form>
+      <form ng-submit="articleCtrl.deleteArticle(article)">
+        <input type="submit" value="Delete">
+      </form>
+      <a href="#" ng-click="editorEnabled=!editorEnabled">Cancel</a>
+    </div></br>
+      <span> Comments: </span></br>
+        <span ng-repeat = "comment in article.comments">
+          <span>{{comment.body}} by {{comment.username}}</span></br> </span></br>
+            <div ng-controller="CommentsController as commentCtrl">
+            <form ng-submit="commentCtrl.createComment()">
+            <input type="text" ng-model="commentCtrl.newCommentBody"/>
+            <br/>
+            <input type="submit" value="Submit!" />
+            <br/>
+            <br/>
+        </form>
+      </div>
+    <hr>
   </div>
 
 </main>
