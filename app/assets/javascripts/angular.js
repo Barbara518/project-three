@@ -14,17 +14,17 @@ app.config(['$routeProvider', '$locationProvider',
 function($routeProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
   $routeProvider.
-    when('/Articles', {
+    when('/articles', {
       templateUrl:'/templates/index.html',
       controller: 'ArticlesController',
       controllerAs: 'articleCtrl'
     }).
-    when('/Articles/new', {
+    when('/articles/new', {
       templateUrl: '/templates/new.html',
       controller: 'ArticlesController',
       controllerAs: 'articleCtrl'
     }).
-    when('/Articles/:id', {
+    when('/articles/:id', {
       templateUrl: 'articlesNew.html',
       controller: 'ArticlesController',
       controllerAs: 'articleCtrl'

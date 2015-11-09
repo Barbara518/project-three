@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/amiloggedin' => 'application#amiloggedin'
   post '/users' => 'users#create'
   post '/session' => 'session#create'
-  post '/session' => 'session#destroy'
+  delete '/session' => 'session#destroy'
   post '/articles/:id/comments' => 'comments#create'
   get '/articles/:id/edit' => 'articles#edit'
   patch '/articles/:id' => 'articles#update'
