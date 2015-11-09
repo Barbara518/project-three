@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   post '/users' => 'users#create'
   post '/session' => 'session#create'
   post '/session' => 'session#destroy'
-  post '/article/:id/comments' => 'comments#create'
+  post '/articles/:id/comments' => 'comments#create'
+  get '/articles/:id/edit' => 'articles#edit'
+  patch '/articles/:id' => 'articles#update'
+  delete '/articles/:id' => 'articles#destroy'
   get  '/articles' => 'articles#index'
   get  '/articles/all_articles' => 'articles#all_articles', defaults: { format: :json }
   get  '/articles/new' => 'articles#new'
