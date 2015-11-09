@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html ng-app="travelApp">
 <head>
+  <base href="/">
   <title>ProjectThree</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <% if flash[:message]%>
-  <%= flash[:message]%>
-  <%end%>
-<%= yield %>
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css">
 
-<%= javascript_include_tag 'angular', 'data-turbolinks-track' => true%>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'angular-route.min.js', 'angular', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'app.js', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+</head>
+
+
+<body>
+  <ul>
+    <li><a href='articles'>Articles</a></li>
+    <li><a href='articles/new'>Create an Article</a></li>
+  </ul>
+
+  <% if flash[:message]%>
+    <%= flash[:message]%>
+  <%end%>
+  <div ng-view></div>
+
+  <%= yield %>
 </body>
 </html>
