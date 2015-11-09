@@ -1,0 +1,47 @@
+<% if flash[:message] %>
+<%= flash[:message] %>
+<% end %>
+
+<form action="<%= articles_path %>" method="POST">
+  <input type="hidden" name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+  <input type="text" name="article[location]"
+    placeholder="Where'd you go!"><br/>
+  <input type="text" name="article[latitude]"
+    placeholder="Latitude"><br/>
+  <input type="text" name="article[longitude]"
+    placeholder="Longitude"><br/>
+  <input type="text" name="article[body]"
+    placeholder="Insider tip"><br/>
+  <label for "date_traveled">When did you go?</label>
+  <input id="date_traveled" type="date" name="article[date_traveled]"><br/>
+  <input type="submit" value="Add to Map">
+</form>
+
+<h1>All Articles</h1>
+
+<ul id="articles">
+  <% @articles.each do |article| %>
+    <li>
+      <%= User.find(article.user_id).name %> visited
+      <%= article.location %> on
+      <%= article.date_traveled %></br>
+      Insider tip: <%=article.body%> </br>
+      <% if article.user_id == current_user.id %>
+      <a href="/articles/<%=article.id%>/edit">Edit</a>
+      <% end %>
+
+      <form action="/article/<%=article.id%>/comments" method="POST">
+        <input type="hidden" name="authenticity_token"
+          value="<%= form_authenticity_token %>">
+        <input type="text" name="comment[body]"
+          placeholder="Comment"><br/>
+        <input type="submit" value="Submit">
+      </form>
+      Comments:
+      <% article.comments.each do |comment| %>
+      <%= comment.body %> - <%= User.find(comment.user_id).name %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
