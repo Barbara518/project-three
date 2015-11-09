@@ -1,5 +1,24 @@
 var app = angular.module('travelApp', []);
 
+///////////////////////////////////////////////////////////////////////
+//////////////////////////User Controller//////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+app.controller('SessionController', ['$http', '$scope', function($http, $scope) {
+  console.log(this)
+
+  this.deleteSession = function () {
+  console.log("logging out user")
+    $http.delete('/session', {
+      //include authenticity_token
+    }).success(function(data){
+      console.log("logged off!!!")
+      //refresh transgression data once PATCH is complete
+      // controller.getArticles();
+    })
+  }
+
+}])
 
 ///////////////////////////////////////////////////////////////////////
 //////////////////////////Article Controller//////////////////////////
@@ -59,11 +78,13 @@ app.controller('ArticlesController', ['$http', '$scope', function($http, $scope)
 
       //include authenticity_token
     }).success(function(data){
+      console.log(data);
       console.log("deleted!!!")
+      controller.getArticles()
       //refresh transgression data once PATCH is complete
       // controller.getArticles();
     }).error(function(data, status) {
-      console.log(status)
+      controller.getArticles()
     });
   }
 
