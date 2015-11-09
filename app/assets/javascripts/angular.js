@@ -17,6 +17,8 @@ app.controller('ArticlesController', ['$http', '$scope', function($http, $scope)
   this.getArticles = function () {
     $http.get('/articles/all_articles').success(function(data) {
       controller.articles = data.articles
+      controller.user = data.user
+      console.log(data.user);
     });
   }
 
