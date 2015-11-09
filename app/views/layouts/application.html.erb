@@ -8,6 +8,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= stylesheet_link_tag 'welcome' if params[:action] == 'welcome' %>
   <% if flash[:message]%>
   <%= flash[:message]%>
   <%end%>
