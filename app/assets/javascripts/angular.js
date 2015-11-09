@@ -1,5 +1,41 @@
-var app = angular.module('travelApp', []);
+var app = angular.module('travelApp', ['ngRoute']);
 
+///////////////////////////////////////////////////////////////////////
+//////////////////////////Routes Controller///////////////////////////
+/////////////////////////////////////////////////////////////////////
+app.controller('RouteController', ['$http', '$scope', '$route', '$routeParams', '$location',
+function($http, $scope, $route, $routeParams, $location) {
+  $scope.$route = $route;
+  $scope.$location = $location;
+  $scope.$routeParams = $routeParams;
+}]);
+
+app.config(['$routeProvider', '$locationProvider',
+function($routeProvider, $locationProvider) {
+  $locationProvider.html5Mode(true);
+  $routeProvider.
+    when('/Articles', {
+      templateUrl:'/templates/index.html',
+      controller: 'ArticlesController',
+      controllerAs: 'articleCtrl'
+    }).
+    when('/Articles/new', {
+      templateUrl: '/templates/new.html',
+      controller: 'ArticlesController',
+      controllerAs: 'articleCtrl'
+    }).
+    when('/Articles/:id', {
+      templateUrl: 'articlesNew.html',
+      controller: 'ArticlesController',
+      controllerAs: 'articleCtrl'
+    });
+}]);
+
+//
+// app.run(function ($templateCache) {
+//   $templateCache.put('articlesIndex.html', 'KDJFKLSJDFKLSDJKLSD');
+//   $templateCache.put('articlesNew.html', 'new');
+// })
 
 ///////////////////////////////////////////////////////////////////////
 //////////////////////////Article Controller//////////////////////////
