@@ -31,7 +31,7 @@ skip_before_action :verify_authenticity_token
   def update
     @article = Article.find(params[:id])
     @article.update(article_params)
-    redirect_to articles_path
+    redirect_to action: 'index', status: 303
   end
 
   def destroy

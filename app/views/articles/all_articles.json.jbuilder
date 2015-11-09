@@ -9,7 +9,7 @@ json.articles(@articles) do |art|
   json.latitude art.latitude
   json.longitude art.longitude
   json.body art.body
-  json.date art.date_traveled
+  json.date_traveled art.date_traveled
 
   json.comments(art.comments) do |com|
     json.id com.id
