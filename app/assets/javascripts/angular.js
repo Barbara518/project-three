@@ -4,7 +4,7 @@ var app = angular.module('travelApp', []);
 ///////////////////////////////////////////////////////////////////////
 //////////////////////////Article Controller//////////////////////////
 /////////////////////////////////////////////////////////////////////
-app.controller('ArticlesController', ['$http', function($http) {
+app.controller('ArticlesController', ['$http', '$scope', function($http, $scope) {
   var controller = this;
   console.log(controller);
 
