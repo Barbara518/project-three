@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag 'welcome', media: 'all', 'data-turbolinks-track' => true %>
 <% if current_user %>
 <% redirect_local %>
 <%end%>
@@ -43,8 +44,8 @@
     <form  action="<%= users_path %>" autocomplete="on" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
         <h1> Sign up </h1>
-            <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
-            <input id="usernamesignup" name="user[name]" required="required" type="text" placeholder="awesomeusername" />
+            <label for="usernamesignup" class="uname" data-icon="u">Your name</label>
+            <input id="usernamesignup" name="user[name]" required="required" type="text" placeholder="John Smith" />
 
             <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
             <input id="emailsignup" name="user[email]" required="required" type="email" placeholder="mysupermail@mail.com"/>
@@ -52,8 +53,6 @@
             <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
             <input id="passwordsignup" name="user[password]" required="required" type="password" placeholder="eg. X8df!90EO"/>
 
-            <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
-            <input id="passwordsignup_confirm" name="user[passwordconfirm]" required="required" type="password" placeholder="eg. X8df!90EO"/>
 
             <input class="submit" type="submit" value="Sign up"/>
     </form>
