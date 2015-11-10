@@ -1,15 +1,10 @@
-html {
-  box-sizing: border-box;
-  background-color: #FFF3F4;
-  margin: 15%;
 
-}
-main {
+html {
+  width: 80%%;
 }
 
 
 header {
-  width: 95%;
 }
 nav {
   color: black;

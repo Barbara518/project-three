@@ -19,11 +19,11 @@
 
 
 <body>
+<%= render 'layouts/header' unless @disable_nav %>
 
   <% if flash[:message]%>
-    <%= flash[:message]%>
+  <%= flash[:message]%>
   <%end%>
-  <%= render partial: 'layouts/header' %>
 
   <div ng-controller="SessionController as sessionCtrl">
   <div ng-show="sessionCtrl.current_user.name">
