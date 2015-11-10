@@ -91,8 +91,8 @@ input[value="play"]:checked ~ #slider figure {
 }
 .form-container {
   background: rgba(185, 194, 169, .4);
-  padding: 1% 5%;
-  width: 30%;
+  padding: 1% 2%;
+  width: 25%;
   min-width:300px;
   margin: auto;
   text-align: center;
@@ -102,22 +102,22 @@ input[value="play"]:checked ~ #slider figure {
 
 .form-container h1 {
   font-size: 1.25rem;
+  margin: .8rem;
 }
 
 input {
-  line-height: 1.5rem;
   display: block;
   margin-right: auto;
   margin-left: auto;
 }
 
-label{
+label.form-label{
   display:block;
-  padding: .7rem;
+  padding: .5rem;
+  margin: 3px; 
 }
 
 input[type=text], input[type=email], input[type=password] {
-    padding:5px;
     border:2px solid #ccc;
     border-radius: 5px;
     background: rgba(185, 194, 169, .4);
@@ -129,10 +129,9 @@ input[type=submit]:hover {
 }
 
 input[type=submit] {
-    margin-bottom: 1rem;
-    margin-top: 30px;
+    margin-bottom: .8rem;
     width: 150px;
-    padding:15px;
+    padding:10px;
     border:0 none;
     cursor:pointer;
     border-radius: 5px;
