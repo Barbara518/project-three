@@ -17,14 +17,22 @@
 
 
 <body>
-  <ul>
-    <li><a href='articles'>Articles</a></li>
-    <li><a href='articles/new'>Create an Article</a></li>
-  </ul>
 
   <% if flash[:message]%>
     <%= flash[:message]%>
   <%end%>
+  <div ng-controller="SessionController as sessionCtrl">
+  <div ng-show="sessionCtrl.current_user.name">
+    <ul>
+      <li><a href='articles'>Articles</a></li>
+      <li><a href='articles/new'>Create an Article</a></li>
+    </ul>
+    <form ng-submit="sessionCtrl.deleteSession()">
+      <input type="submit" value="Log Out">
+    </form>
+  </div>
+
+  <hr></br>
   <div ng-view></div>
 
   <%= yield %>

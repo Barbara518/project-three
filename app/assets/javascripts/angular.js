@@ -41,9 +41,14 @@ function($routeProvider, $locationProvider) {
 /////////////////////////////////////////////////////////////////////
 
 app.controller('SessionController', ['$http', '$scope', function($http, $scope) {
-  console.log(this)
+  var controller = this;
+
+  $http.get('/amiloggedin').success(function (data){
+    controller.current_user = data;
+  });
 
   this.deleteSession = function () {
+  console.log(controller)
   console.log("logging out user")
     $http.delete('/session', {
       //include authenticity_token
@@ -59,7 +64,7 @@ app.controller('SessionController', ['$http', '$scope', function($http, $scope) 
 ///////////////////////////////////////////////////////////////////////
 //////////////////////////Article Controller//////////////////////////
 /////////////////////////////////////////////////////////////////////
-app.controller('ArticlesController', ['$http', '$scope', function($http, $scope) {
+app.controller('ArticlesController', ['$http', '$scope', '$location', function($http, $scope, $location) {
   var controller = this;
   console.log(controller);
 
@@ -84,6 +89,7 @@ app.controller('ArticlesController', ['$http', '$scope', function($http, $scope)
     }).success(function(data){
       controller.newArticle = {};
       console.log(data);
+      $location.path("/articles");
     })
 
   }
