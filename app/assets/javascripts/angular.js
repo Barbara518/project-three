@@ -41,9 +41,14 @@ function($routeProvider, $locationProvider) {
 /////////////////////////////////////////////////////////////////////
 
 app.controller('SessionController', ['$http', '$scope', function($http, $scope) {
-  console.log(this)
+  var controller = this;
+
+  $http.get('/amiloggedin').success(function (data){
+    controller.current_user = data;
+  });
 
   this.deleteSession = function () {
+  console.log(controller)
   console.log("logging out user")
     $http.delete('/session', {
       //include authenticity_token
