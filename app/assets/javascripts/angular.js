@@ -1,4 +1,4 @@
-var app = angular.module('travelApp', ['ngRoute']);
+var app = angular.module('travelApp', ['ngRoute', 'ngMap']);
 
 ///////////////////////////////////////////////////////////////////////
 //////////////////////////Routes Controller///////////////////////////
@@ -36,6 +36,10 @@ function($routeProvider, $locationProvider) {
 //   $templateCache.put('articlesIndex.html', 'KDJFKLSJDFKLSDJKLSD');
 //   $templateCache.put('articlesNew.html', 'new');
 // })
+
+//////////////////////////Map Controller//////////////////////////
+/////////////////////////////////////////////////////////////////////
+
 
 //////////////////////////User Controller//////////////////////////
 /////////////////////////////////////////////////////////////////////
@@ -123,10 +127,15 @@ app.controller('ArticlesController', ['$http', '$scope', '$location', function($
   this.createArticle = function () {
     console.log("In createArticle")
     $http.post('/articles', {
-      article: controller.newArticle
+      article: {
+        body: controller.newArticle.body,
+        date_traveled: controller.newArticle.date_traveled,
+        location: location,
+        latitude: lat,
+        longitude: lng
+      }
     }).success(function(data){
       controller.newArticle = {};
-      console.log(data);
       $location.path("/articles");
     })
 
