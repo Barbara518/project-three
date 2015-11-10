@@ -1,16 +1,26 @@
-
 <main ng-controller="ArticlesController as articleCtrl">
 
+
 <form ng-submit = "articleCtrl.createArticle()">
-  <input type = "text" ng-model = "articleCtrl.newArticle.body"/>
-  <input type="text"   ng-model = "articleCtrl.newArticle.location"
-    placeholder="Location"/>
-  <input type="text"   ng-model = "articleCtrl.newArticle.latitude"
-    placeholder="Latitude"/>
-  <input type="text"   ng-model = "articleCtrl.newArticle.longitude"
-    placeholder="Longitude"/>
-  <input  type="date"  ng-model = "articleCtrl.newArticle.date_traveled"
-    placeholder="date traveled"/>
+
+  <input type="text" id="my-address">
+  <button id="getCords" onClick="codeAddress();">Submit for Latitude and Longitude</button>
+  <br><hr><br>
+  <textarea type="text" ng-model = "articleCtrl.newArticle.body" placeholder="Article Body"></textarea><br><br>
+
+
+  <input type="text" ng-model = "articleCtrl.newArticle.location"
+  placeholder="Location" id="nameofplaceID"/><br><br>
+
+  <input type="text" ng-model = "articleCtrl.newArticle.latitude"
+   placeholder="Latitude" id="latitueID"/><br><br>
+
+  <input type="text" ng-model = "articleCtrl.newArticle.longitude"
+  placeholder="Longitude" id="longitudeID"/><br><br>
+
+  <input type="date" ng-model = "articleCtrl.newArticle.date_traveled" placeholder="date traveled"/><br><br>
+
+
   <input type = "submit" />
 </form>
 
