@@ -120,7 +120,13 @@ app.controller('ArticlesController', ['$http', '$scope', '$location', function($
     $http.get('/articles/all_articles').success(function(data) {
       controller.articles = data.articles
       controller.user = data.user
-      console.log(data.user);
+      controller.dests = []
+
+      angular.forEach(data.articles, function (value) {
+        controller.dests.push({lat: value.latitude, lng: value.longitude});
+      })
+
+      console.log(controller.dests)
     });
   }
 
