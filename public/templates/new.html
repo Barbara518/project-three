@@ -1,8 +1,20 @@
+
 <main>
   <form ng-submit = "articleCtrl.createArticle()">
+<<<<<<< HEAD
+    <input type = "text" ng-model = "articleCtrl.newArticle.body"
+    placeholder="Your Travel Memory"/>
+    <input type="text"   ng-model = "articleCtrl.newArticle.location"
+      placeholder="Location"/>
+    <input type="text"   ng-model = "articleCtrl.newArticle.latitude"
+      placeholder="Latitude"/>
+    <input type="text"   ng-model = "articleCtrl.newArticle.longitude"
+      placeholder="Longitude"/>
+=======
     <input class="search" places-auto-complete types="['geocode']" on-place-changed="placeChanged()"/>
     <input type = "text" ng-model = "articleCtrl.newArticle.body"
       placeholder="Travel Tip"/>
+>>>>>>> 6e827e034d746ead3faa3be9e312eb85adc2a37b
     <input  type="date"  ng-model = "articleCtrl.newArticle.date_traveled"
       placeholder="date traveled"/>
     <input type = "submit" />
