@@ -8,13 +8,13 @@
 /*Header*/
 #header {
   text-align: center;
-  height: 100px;
+  height: 90px;
   background-color: rgba(255,255,255, .5)
 }
 
 #header h1 {
-  margin-top: 30px;
-  font-weight: 300;
+  margin-top: 20px;
+  font-weight: 150;
 }
 
 /*Container*/
@@ -24,9 +24,8 @@
   margin: 0 auto;
 }
 
-input[type="radio"],
 input[type="checkbox"]{
-  display: none;
+  display: inline-block;
 }
 
 input[value="play"]:checked ~ #slider figure {
@@ -75,6 +74,13 @@ input[value="play"]:checked ~ #slider figure {
   display: none;
 }
 
+/*Form*/
+input[value="signup"]:checked #signup-form {
+  display: none;
+  top: 10000px;
+  background: red;
+}
+
 .button {
   border-radius: 50%;
   display: inline-block;
@@ -99,7 +105,11 @@ input[value="play"]:checked ~ #slider figure {
   border-radius: 15px;
   z-index: 2;
 }
-
+label.form-header{
+  font-size: 1.25rem;
+  margin: .8rem;
+  color: black;
+}
 .form-container h1 {
   font-size: 1.25rem;
   margin: .8rem;

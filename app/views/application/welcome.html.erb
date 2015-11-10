@@ -40,20 +40,24 @@
               <input id="password" name="user[password]" required="required" type="password" placeholder="eg. X8df!90EO" />
               <input class="submit" type="submit" value="Login" />
       </form>
+      <label class="form-header" for="signup">Sign Up
+        <input type="checkbox" name="signup" value="signup" id="signup"/>
+      </label>
 
-    <form  action="<%= users_path %>" autocomplete="on" method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
-        <h1 class="form-header"> Sign up </h1>
-            <label for="usernamesignup" class="form-label">Your name</label>
-            <input id="usernamesignup" name="user[name]" required="required" type="text" placeholder="John Smith" />
+    <div id="signup-form" >
+      <form  action="<%= users_path %>" autocomplete="on" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+              <label for="usernamesignup" class="form-label">Your name</label>
+              <input id="usernamesignup" name="user[name]" required="required" type="text" placeholder="John Smith" />
 
-            <label for="emailsignup" class="form-label"> Your email</label>
-            <input id="emailsignup" name="user[email]" required="required" type="email" placeholder="mysupermail@mail.com"/>
+              <label for="emailsignup" class="form-label"> Your email</label>
+              <input id="emailsignup" name="user[email]" required="required" type="email" placeholder="mysupermail@mail.com"/>
 
-            <label for="passwordsignup" class="form-label">Your password </label>
-            <input id="passwordsignup" name="user[password]" required="required" type="password" placeholder="eg. X8df!90EO"/>
+              <label for="passwordsignup" class="form-label">Your password </label>
+              <input id="passwordsignup" name="user[password]" required="required" type="password" placeholder="eg. X8df!90EO"/>
 
 
-            <input class="submit" type="submit" value="Sign up"/>
-    </form>
+              <input class="submit" type="submit" value="Sign up"/>
+      </form>
+    </div>
 </div>
