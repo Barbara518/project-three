@@ -11,7 +11,8 @@
     <input type="text"   ng-model = "articleCtrl.newArticle.longitude"
       placeholder="Longitude"/>
 
-    <input class="search" places-auto-complete types="['geocode']" on-place-changed="placeChanged()"/>
+    <input class="search" places-auto-complete types="['geocode']" on-place-changed="findLocation()"/>
+
     <input type = "text" ng-model = "articleCtrl.newArticle.body"
       placeholder="Travel Tip"/>
 
