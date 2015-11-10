@@ -67,21 +67,31 @@ function($http, $scope, $location, $window) {
 
 }])
 
+
+//////////////////////////Map Controller//////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+app.controller('MapController', ['$http', '$scope', '$location', '$window',
+function($http, $scope, $location, $window) {
+
+
+
+}])
+
+
+var locations = []
 ///////////////////////////////////////////////////////////////////////
 //////////////////////////Article Controller//////////////////////////
 /////////////////////////////////////////////////////////////////////
 app.controller('ArticlesController', ['$http', '$scope', '$location', function($http, $scope, $location) {
   var controller = this;
-  console.log(controller);
-
-  var locations = []
-  var markers = []
 
   var lat;
   var lng;
   var location;
 
-  $scope.placeChanged = function () {
+
+  $scope.findLocation = function () {
       $scope.place = this.getPlace();
        var dest = $scope.place
        location = dest.formatted_address;
@@ -92,7 +102,6 @@ app.controller('ArticlesController', ['$http', '$scope', '$location', function($
          lat: lat,
          lng: lng }
        )
-
        var mapOptions = {
                  zoom: 4,
                  center: new google.maps.LatLng(lat,lng),
@@ -106,7 +115,6 @@ app.controller('ArticlesController', ['$http', '$scope', '$location', function($
                   animation: "DROP"
               });
 
-       console.log(marker)
 
 };
 
