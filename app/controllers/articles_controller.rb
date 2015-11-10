@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
 skip_before_action :verify_authenticity_token
 
   def index
-  
+
   end
 
   def all_articles
@@ -17,11 +17,11 @@ skip_before_action :verify_authenticity_token
     @article = current_user.articles.new(article_params)
 
     if @article.save
-
+      redirect_to articles_path
     else
       flash[:message] = @article.errors.full_messages.to_sentence
+      redirect_to articles_new_path
     end
-    redirect_to articles_path
   end
 
   def edit
@@ -31,17 +31,19 @@ skip_before_action :verify_authenticity_token
   def update
     @article = Article.find(params[:id])
     @article.update(article_params)
-    redirect_to articles_path
+    redirect_to action: 'index', status: 303
   end
 
   def destroy
-  @article = Article.find(params[:id])
+    @article = Article.find(params[:id])
+    @article.destroy
 
-  @article.destroy
+    render json: {
+      message: "article destroyed"
+    }
+  end
 
-end
-
-private
+  private
 
   def article_params
     return params.require(:article).permit(:location, :latitude, :longitude, :body, :date_traveled)

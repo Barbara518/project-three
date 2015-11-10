@@ -5,6 +5,6 @@ json.articles do
   json.latitude @articles.latitude
   json.longitude @articles.longitude
   json.body @articles.body
-  json.date @articles.date_traveled
+  json.date_traveled @articles.date_traveled
   json.comments []
 end

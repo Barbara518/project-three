@@ -1,6 +1,7 @@
 class SessionController < ApplicationController
   def create
-  user = User.find_by(email: user_params[:email])
+    user = User.find_by(email: user_params[:email])
+
 
   if user && user.authenticate(user_params[:password])
     session[:current_user_id] = user.id
@@ -10,11 +11,15 @@ class SessionController < ApplicationController
     flash[:message] = "Username or Password combo are not correct"
     redirect_to root_path
   end
+
   end
 
   def destroy
     session[:current_user_id] = nil
-    redirect_to root_path
+
+    render json: {
+      message: "session destroyed"
+    }
   end
   private
   # Probably don't need name as one of the params here since its only for the session
