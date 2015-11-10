@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.1'
+ruby '2.2.3'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -30,7 +30,7 @@ gem 'faker'
 gem 'bcrypt', '~> 3.1.7'
 
 #puma as web server
-gem 'puma' 
+gem 'puma'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
