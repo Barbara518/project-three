@@ -1,4 +1,4 @@
-var app = angular.module('travelApp', ['ngRoute']);
+var app = angular.module('travelApp', ['ngRoute', 'ngMap']);
 
 ///////////////////////////////////////////////////////////////////////
 //////////////////////////Routes Controller///////////////////////////
@@ -37,6 +37,10 @@ function($routeProvider, $locationProvider) {
 //   $templateCache.put('articlesNew.html', 'new');
 // })
 
+//////////////////////////Map Controller//////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+
 //////////////////////////User Controller//////////////////////////
 /////////////////////////////////////////////////////////////////////
 
@@ -70,6 +74,42 @@ app.controller('ArticlesController', ['$http', '$scope', '$location', function($
   var controller = this;
   console.log(controller);
 
+  var locations = []
+  var markers = []
+
+  var lat;
+  var lng;
+  var location;
+
+  $scope.placeChanged = function () {
+      $scope.place = this.getPlace();
+       var dest = $scope.place
+       location = dest.formatted_address;
+       lat = dest.geometry.location.lat();
+       lng = dest.geometry.location.lng();
+       locations.push({
+         name: location,
+         lat: lat,
+         lng: lng }
+       )
+
+       var mapOptions = {
+                 zoom: 4,
+                 center: new google.maps.LatLng(lat,lng),
+                 mapTypeId: google.maps.MapTypeId.TERRAIN
+             }
+       $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+       var marker = new google.maps.Marker({
+                  map: $scope.map,
+                  position: new google.maps.LatLng(lat, lng),
+                  animation: "DROP"
+              });
+
+       console.log(marker)
+
+};
+
   /// Get Current User from /amiloggedin
   $http.get('/amiloggedin').success(function (data){
     controller.current_user = data;
@@ -87,10 +127,15 @@ app.controller('ArticlesController', ['$http', '$scope', '$location', function($
   this.createArticle = function () {
     console.log("In createArticle")
     $http.post('/articles', {
-      article: controller.newArticle
+      article: {
+        body: controller.newArticle.body,
+        date_traveled: controller.newArticle.date_traveled,
+        location: location,
+        latitude: lat,
+        longitude: lng
+      }
     }).success(function(data){
       controller.newArticle = {};
-      console.log(data);
       $location.path("/articles");
     })
 
