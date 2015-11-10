@@ -1,10 +1,72 @@
-var app = angular.module('travelApp', []);
+var app = angular.module('travelApp', ['ngRoute']);
 
+///////////////////////////////////////////////////////////////////////
+//////////////////////////Routes Controller///////////////////////////
+/////////////////////////////////////////////////////////////////////
+app.controller('RouteController', ['$http', '$scope', '$route', '$routeParams', '$location',
+function($http, $scope, $route, $routeParams, $location) {
+  $scope.$route = $route;
+  $scope.$location = $location;
+  $scope.$routeParams = $routeParams;
+}]);
+
+app.config(['$routeProvider', '$locationProvider',
+function($routeProvider, $locationProvider) {
+  $locationProvider.html5Mode(true);
+  $routeProvider.
+    when('/articles', {
+      templateUrl:'/templates/index.html',
+      controller: 'ArticlesController',
+      controllerAs: 'articleCtrl'
+    }).
+    when('/articles/new', {
+      templateUrl: '/templates/new.html',
+      controller: 'ArticlesController',
+      controllerAs: 'articleCtrl'
+    }).
+    when('/articles/:id', {
+      templateUrl: 'articlesNew.html',
+      controller: 'ArticlesController',
+      controllerAs: 'articleCtrl'
+    });
+}]);
+
+//
+// app.run(function ($templateCache) {
+//   $templateCache.put('articlesIndex.html', 'KDJFKLSJDFKLSDJKLSD');
+//   $templateCache.put('articlesNew.html', 'new');
+// })
+
+//////////////////////////User Controller//////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+app.controller('SessionController', ['$http', '$scope', '$location', '$window',
+function($http, $scope, $location, $window) {
+  var controller = this;
+
+  $http.get('/amiloggedin').success(function (data){
+    controller.current_user = data;
+  });
+
+  this.deleteSession = function () {
+  console.log(controller)
+  console.log("logging out user")
+    $http.delete('/session', {
+      //include authenticity_token
+    }).success(function(data){
+      console.log("logged off!!!")
+      //refresh transgression data once PATCH is complete
+      // controller.getArticles();
+      $window.location.href = "/";
+    })
+  }
+
+}])
 
 ///////////////////////////////////////////////////////////////////////
 //////////////////////////Article Controller//////////////////////////
 /////////////////////////////////////////////////////////////////////
-app.controller('ArticlesController', ['$http', '$scope', function($http, $scope) {
+app.controller('ArticlesController', ['$http', '$scope', '$location', function($http, $scope, $location) {
   var controller = this;
   console.log(controller);
 
@@ -29,6 +91,7 @@ app.controller('ArticlesController', ['$http', '$scope', function($http, $scope)
     }).success(function(data){
       controller.newArticle = {};
       console.log(data);
+      $location.path("/articles");
     })
 
   }
@@ -59,11 +122,13 @@ app.controller('ArticlesController', ['$http', '$scope', function($http, $scope)
 
       //include authenticity_token
     }).success(function(data){
+      console.log(data);
       console.log("deleted!!!")
+      controller.getArticles()
       //refresh transgression data once PATCH is complete
       // controller.getArticles();
     }).error(function(data, status) {
-      console.log(status)
+      controller.getArticles()
     });
   }
 
