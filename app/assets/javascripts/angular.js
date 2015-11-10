@@ -40,7 +40,8 @@ function($routeProvider, $locationProvider) {
 //////////////////////////User Controller//////////////////////////
 /////////////////////////////////////////////////////////////////////
 
-app.controller('SessionController', ['$http', '$scope', function($http, $scope) {
+app.controller('SessionController', ['$http', '$scope', '$location', '$window',
+function($http, $scope, $location, $window) {
   var controller = this;
 
   $http.get('/amiloggedin').success(function (data){
@@ -56,6 +57,7 @@ app.controller('SessionController', ['$http', '$scope', function($http, $scope) 
       console.log("logged off!!!")
       //refresh transgression data once PATCH is complete
       // controller.getArticles();
+      $window.location.href = "/";
     })
   }
 
