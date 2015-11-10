@@ -42,7 +42,7 @@ input[value="play"]:checked ~ #slider figure {
 
 #slider figure img {
   width: 25%;
-  height: 900px;
+  min-height: 900px;
   /*float: left;*/
 }
 
@@ -90,7 +90,7 @@ input[value="play"]:checked ~ #slider figure {
   border: 1px solid #f1f1f1;
 }
 .form-container {
-  background: rgba(185, 204, 103, .4);
+  background: rgba(185, 194, 169, .4);
   padding: 1% 5%;
   width: 30%;
   min-width:300px;
@@ -98,6 +98,10 @@ input[value="play"]:checked ~ #slider figure {
   text-align: center;
   border-radius: 15px;
   z-index: 2;
+}
+
+.form-container h1 {
+  font-size: 1.25rem;
 }
 
 input {
@@ -116,10 +120,11 @@ input[type=text], input[type=email], input[type=password] {
     padding:5px;
     border:2px solid #ccc;
     border-radius: 5px;
-}
+    background: rgba(185, 194, 169, .4);
+  }
 
 input[type=submit]:hover {
-  background: rgba(84, 119, 20, .30);
+  background: rgba(185, 194, 169 .30);
   box-shadow: 4px 4px 10px 5px  #888888;
 }
 
@@ -131,6 +136,6 @@ input[type=submit] {
     border:0 none;
     cursor:pointer;
     border-radius: 5px;
-    background:rgba(84, 119, 60, .60);
+    background:rgba(184, 194, 169, .60);
     box-shadow: 1px 1px 10px 5px  #888888;
 }
