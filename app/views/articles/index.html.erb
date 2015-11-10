@@ -1,13 +1,15 @@
 <!-- google map -->
+<%= stylesheet_link_tag 'main', media: 'all', 'data-turbolinks-track' => true %>
+
 <main ng-controller="ArticlesController as articleCtrl">
 
-  <div ng-controller="SessionController as sessionCtrl">
+  <!-- <div ng-controller="SessionController as sessionCtrl">
   <div ng-show="articleCtrl.user">
     <form ng-submit="sessionCtrl.deleteSession()">
       <input type="submit" value="Log Out">
     </form>
   </div>
-  <hr></br>
+  <hr></br> -->
 
   <div ng-repeat = "article in articleCtrl.articles">
     <div ng-hide="editorEnabled">
