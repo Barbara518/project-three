@@ -1,5 +1,9 @@
 <main ng-controller="ArticlesController as articleCtrl">
 
+  <map zoom="2" center="[40.74, -74.18]">
+    <marker ng-repeat="dest in articleCtrl.dests" position="{{dest.lat}}, {{dest.lng}}"></marker>
+  </map>
+
   <div ng-repeat = "article in articleCtrl.articles">
     <div ng-hide="editorEnabled">
     <span>  Location: {{article.location}} </span> </br>
