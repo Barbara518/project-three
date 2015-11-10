@@ -7,5 +7,14 @@
   <form ng-submit="sessionCtrl.deleteSession()">
     <input type="submit" class="linkbutton" value="Log Out">
   </form>
+  <% if flash[:message]%>
+  <div id="flashmessage">
+  <%= flash[:message]%>
+</div>
+  <%end%>
 </div>
 </header>
+
+<script>
+$(document).ready(function() {$("#flashmessage").delay(2500).fadeOut(500);});
+</script>

@@ -1,16 +1,18 @@
 
 html {
   width: 80%%;
-  background-color: #E7E7E7;
+  /*background-color: #E7E7E7;*/
+  background-color: white;
 }
 
 
 header {
-  height: 150px;
+  background: rgba(185, 194, 169, .4);
+  height: 200px;
   margin-left: 10%;
   margin-right: 10%;
   color: black;
-  background-color: white;
+  /*background-color: white;*/
   text-align: center;
   border-radius: 25px;
   border-style: ridge;
@@ -27,4 +29,9 @@ header {
   text-align: center;
   padding-left: 15px;
   padding-right: 15px;
+}
+.articledisplay {
+
+  background: rgba(185, 194, 169, .4);
+
 }
