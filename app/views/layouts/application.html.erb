@@ -9,10 +9,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css">
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'main', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'angular-route.min.js', 'angular', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'app.js', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'main', media: 'all', 'data-turbolinks-track' => true %>
 
 </head>
 
@@ -22,6 +23,8 @@
   <% if flash[:message]%>
     <%= flash[:message]%>
   <%end%>
+  <%= render partial: 'layouts/header' %>
+
   <div ng-controller="SessionController as sessionCtrl">
   <div ng-show="sessionCtrl.current_user.name">
     <ul>
