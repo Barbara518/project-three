@@ -1,6 +1,11 @@
 <header>
  <!-- <%= image_tag 'logo.png', class: 'logo' %> -->
-<nav>
 <h2>stupid fucking header</h2>
-</nav>
+<div ng-controller="SessionController as sessionCtrl">
+<div ng-show="sessionCtrl.current_user.name">
+<a href='articles' class="linkbutton"> Articles </a> <a href='articles/new' class="linkbutton"> Create an Article </a>
+  <form ng-submit="sessionCtrl.deleteSession()">
+    <input type="submit" class="linkbutton" value="Log Out">
+  </form>
+</div>
 </header>
