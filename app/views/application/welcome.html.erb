@@ -1,60 +1,59 @@
+<%= stylesheet_link_tag 'welcome', media: 'all', 'data-turbolinks-track' => true %>
 <% if current_user %>
 <% redirect_local %>
 <%end%>
 
-  <!-- header -->
-<div id="header">
-    <h1> Memory Traveler </h1>
+    <!-- header -->
+    <div id="header">
+        <h1> Memory Traveler </h1>
 
-    <!-- nav -->
-    <div id="navigation">
-        <label class="play" for="play">Auto-Play</label>
+        <!-- nav -->
+        <div id="navigation">
+            <label class="play" for="play">Auto-Play</label>
+        </div>
+
     </div>
 
-</div>
+    <!-- container -->
+    <div id="container">
+      <input type="checkbox" value="play" name="play" id="play" checked="yes"/>
 
-<!-- container -->
-<div id="container">
-  <input type="checkbox" value="play" name="play" id="play" checked="yes"/>
-
-  <!-- slider -->
-  <div id="slider">
-    <figure>
-        <%= image_tag '1.jpg' %>
-        <%= image_tag '2.jpg' %>
-        <%= image_tag '3.jpg' %>
-        <%= image_tag '4.jpg' %>
-      </figure>
-    </div>
-  </div>
+      <!-- slider -->
+      <div id="slider">
+        <figure>
+            <%= image_tag '1.jpg' %>
+            <%= image_tag '2.jpg' %>
+            <%= image_tag '3.jpg' %>
+            <%= image_tag '4.jpg' %>
+          </figure>
+        </div>
+      </div>
 
 <div class="form-container">
-    <form  action="<%= session_path %>" autocomplete="on" method="post">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
-        <h1>Log in</h1>
-            <label for="username" class="uname" data-icon="u" > Your email or username </label>
-            <input id="username" name="user[email]" required="required" type="email" placeholder="mymail@mail.com"/>
+      <form  action="<%= session_path %>" autocomplete="on" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+          <h1>Log in</h1>
+              <label for="username" class="uname" data-icon="u" > Your email or username </label>
+              <input id="username" name="user[email]" required="required" type="email" placeholder="mymail@mail.com"/>
 
-            <label for="password" class="youpasswd" data-icon="p"> Your password </label>
-            <input id="password" name="user[password]" required="required" type="password" placeholder="eg. X8df!90EO" />
-            <input class="submit" type="submit" value="Login" />
+              <label for="password" class="youpasswd" data-icon="p"> Your password </label>
+              <input id="password" name="user[password]" required="required" type="password" placeholder="eg. X8df!90EO" />
+              <input class="submit" type="submit" value="Login" />
+      </form>
+
+    <form  action="<%= users_path %>" autocomplete="on" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+        <h1> Sign up </h1>
+            <label for="usernamesignup" class="uname" data-icon="u">Your name</label>
+            <input id="usernamesignup" name="user[name]" required="required" type="text" placeholder="John Smith" />
+
+            <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
+            <input id="emailsignup" name="user[email]" required="required" type="email" placeholder="mysupermail@mail.com"/>
+
+            <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
+            <input id="passwordsignup" name="user[password]" required="required" type="password" placeholder="eg. X8df!90EO"/>
+
+
+            <input class="submit" type="submit" value="Sign up"/>
     </form>
-
-  <form  action="<%= users_path %>" autocomplete="on" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
-      <h1> Sign up </h1>
-          <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
-          <input id="usernamesignup" name="user[name]" required="required" type="text" placeholder="awesomeusername" />
-
-          <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
-          <input id="emailsignup" name="user[email]" required="required" type="email" placeholder="mysupermail@mail.com"/>
-
-          <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
-          <input id="passwordsignup" name="user[password]" required="required" type="password" placeholder="eg. X8df!90EO"/>
-
-          <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
-          <input id="passwordsignup_confirm" name="user[passwordconfirm]" required="required" type="password" placeholder="eg. X8df!90EO"/>
-
-          <input class="submit" type="submit" value="Sign up"/>
-  </form>
 </div>
