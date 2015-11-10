@@ -64,7 +64,7 @@ app.controller('SessionController', ['$http', '$scope', function($http, $scope) 
 ///////////////////////////////////////////////////////////////////////
 //////////////////////////Article Controller//////////////////////////
 /////////////////////////////////////////////////////////////////////
-app.controller('ArticlesController', ['$http', '$scope', function($http, $scope) {
+app.controller('ArticlesController', ['$http', '$scope', '$location', function($http, $scope, $location) {
   var controller = this;
   console.log(controller);
 
@@ -89,6 +89,7 @@ app.controller('ArticlesController', ['$http', '$scope', function($http, $scope)
     }).success(function(data){
       controller.newArticle = {};
       console.log(data);
+      $location.path("/articles");
     })
 
   }
