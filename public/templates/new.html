@@ -1,6 +1,6 @@
 <main>
   <form ng-submit = "articleCtrl.createArticle()">
-    <input class="search" places-auto-complete types="['geocode']" on-place-changed="placeChanged()"/>
+    <input class="search" places-auto-complete types="['geocode']" on-place-changed="findLocation()"/>
     <input type = "text" ng-model = "articleCtrl.newArticle.body"
       placeholder="Travel Tip"/>
     <input  type="date"  ng-model = "articleCtrl.newArticle.date_traveled"
