@@ -14,14 +14,17 @@ header {
   text-align: center;
   border-radius: 25px;
   border-style: ridge;
-  }
+}
 
 .linkbutton {
-    -webkit-appearance: button;
-    text-decoration: none;
-    color: initial;
-    background: gray;
-      display: inline-block;
-      margin-left: 20px;
-      margin-right: 20px;
+  -webkit-appearance: button;
+  text-decoration: none;
+  color: initial;
+  background: gray;
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
 }
