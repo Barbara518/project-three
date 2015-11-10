@@ -1,24 +1,18 @@
+<main>
+  <form ng-submit = "articleCtrl.createArticle()">
 
-<main ng-controller="ArticlesController as articleCtrl">
+    <input class="search" places-auto-complete types="['geocode']" on-place-changed="findLocation()"/>
 
-<form ng-submit = "articleCtrl.createArticle()">
+    <input type = "text" ng-model = "articleCtrl.newArticle.body"
+      placeholder="Travel Tip"/>
 
-  <br><hr><br>
-  <textarea type="text" ng-model = "articleCtrl.newArticle.body" placeholder="Article Body"></textarea><br><br>
+    <input  type="date"  ng-model = "articleCtrl.newArticle.date_traveled"
+      placeholder="date traveled"/>
+    <input type = "submit" />
+  </form>
 
-  <input type="text" ng-model = "articleCtrl.newArticle.location"
-  placeholder="Location" id="nameofplaceID"/><br><br>
+  <ng-map id="map" center="40, -79" zoom=5 zoom-to-inlude-markers="true" zoom-control="true" style="display:block, height:400px;">
 
-  <input type="text" ng-model = "articleCtrl.newArticle.latitude"
-   placeholder="Latitude" id="latitueID"/><br><br>
-
-  <input type="text" ng-model = "articleCtrl.newArticle.longitude"
-  placeholder="Longitude" id="longitudeID"/><br><br>
-
-  <input type="date" ng-model = "articleCtrl.newArticle.date_traveled" placeholder="date traveled"/><br><br>
-
-
-  <input type = "submit" />
-</form>
+  </ng-map>
 
 </main>
