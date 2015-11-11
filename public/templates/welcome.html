@@ -3,6 +3,29 @@
 <% redirect_local %>
 <%end%>
 
+
+
+
+
+
+<!--
+
+THIS FILE IS NOT IN USE
+
+
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
     <!-- header -->
     <div id="header">
         <h1> Memory Traveler </h1>
@@ -38,10 +61,10 @@
 
               <label for="password" class="form-label"> Your password </label>
               <input id="password" name="user[password]" required="required" type="password" placeholder="eg. X8df!90EO" />
-              <input class="submit" type="submit" value="Login" />
+              <input class="submit" type="submit" value="Login"/>
       </form>
-        <label id="signupbutton" class="form-header" >Sign Up
-      </label>
+
+      <label id="signupbutton" class="form-header">Sign Up</label>
 
     <div id="signup-form" class="hidden">
       <form  action="<%= users_path %>" autocomplete="on" method="post">
@@ -52,7 +75,7 @@
               <label for="emailsignup" class="form-label"> Your email</label>
               <input id="emailsignup" name="user[email]" required="required" type="email" placeholder="mysupermail@mail.com"/>
 
-              <label for="passwordsignup" class="form-label">Your password </label>
+              <label for="passwordsignup" class="form-label">Your password </label><br>
               <input id="passwordsignup" name="user[password]" required="required" type="password" placeholder="eg. X8df!90EO"/>
 
               <input class="submit" type="submit" value="Sign up"/>
