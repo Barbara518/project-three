@@ -42,17 +42,29 @@
       <span> Comments: </span></br>
         <span ng-repeat = "comment in article.comments">
           <span>{{comment.body}} by <b>{{comment.username}}</b></span></br> </span></br>
+
+          <button class="linkbutton" ng-click="commenter=true">Comment</button>
+          <div ng-show="commenter">
             <div ng-controller="CommentsController as commentCtrl">
             <form ng-submit="commentCtrl.createComment()">
-            <input type="textarea" ng-model="commentCtrl.newCommentBody"/>
+            <textarea rows="6" cols="50" ng-model="commentCtrl.newCommentBody"/></textarea>
             <br/>
-            <input type="submit" class="linkbutton" value="Comment" />
-            <br/>
-            <br/>
-        </form>
+            <input type="submit" class="linkbutton" value="Submit Comment" />
+          
+            </form>
+            </div>
+              <button class="linkbutton" ng-click="commenter=false">Cancel Comment</button>
       </div>
     <hr>
   </div>
 </div>
 
 </main>
+
+<a href="" ng-click="showme=true">Show</a>
+  <button ng-click="showme=false">Hide</button>
+
+  <div class="wrapper">
+    <p ng-hide="showme">It will appear here!</p>
+    <h2 ng-show="showme">This is mah content, yo!</h2>
+  </div>
