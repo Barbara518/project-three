@@ -1,12 +1,15 @@
 
 
-* {
+html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Maven Pro','Open Sans', sans-serif;
 }
+body {
+  background: white !important;
 
+}
 /*Header*/
 #header {
   text-align: center;

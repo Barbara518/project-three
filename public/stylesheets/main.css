@@ -1,30 +1,103 @@
-
-html {
-  width: 80%%;
-  background-color: #E7E7E7;
+* {
+font-family: 'Arapey', serif;
+  box-sizing: border-box;
+  margin: 0px;
 }
 
+body {
+  width: 80%;
+  /*background-color: #E7E7E7;*/
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url('/images/bg.png');
 
+}
+.container {
+  background-color: rgba(200, 200, 200, 0.5);;
+    margin-left: 5%;
+    margin-right: 5%
+}
 header {
-  height: 150px;
-  margin-left: 10%;
-  margin-right: 10%;
+  background-image: url('/images/navbg.png');
+
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: rgba(200, 200, 200, 0.85);;
   color: black;
-  background-color: white;
   text-align: center;
-  border-radius: 25px;
+  border-radius: 10px;
   border-style: ridge;
+  width: 100%;
+  height: auto;
 }
 
-.linkbutton {
-  -webkit-appearance: button;
+#nav {
+  background: none;
+  /*margin: 2%;*/
+  justify-content: space-between;
+  display: flex;
+  /*margin-top: 1em;*/
+  height: auto;
+}
+#navcontainer {
+  position: fixed;
+  z-index: 2;
+    width: inherit;
+    height: 1em;
+}
+
+.sticky {
+    position: fixed;
+    width: 100%;
+    /*left: 0;*/
+    top: 0;
+    z-index: 3;
+    border-top: 0;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+ .linkbutton {
+     font-size: 15px;
+     text-decoration: none;
+     background: linear-gradient(#424242, #adadad);
+     color: #333333;
+     border-radius: 6px;
+     color: #ffffff;
+     border: solid #000000 1px;
+     padding: 7px 20px 7px 20px;
+     margin:2px;
+    min-height: 30px;
+      min-width: 100px;
+}
+
+.linkbutton:hover {
+  background: #000000;
   text-decoration: none;
-  color: initial;
-  background: gray;
+}
+
+form, input {
   display: inline-block;
-  margin-left: 20px;
-  margin-right: 20px;
-  text-align: center;
-  padding-left: 15px;
-  padding-right: 15px;
+}
+
+#artloc {
+    margin-left: 10%;
+    margin-top: 15%;
+    font-size: 1.75em;
+}
+#artbody {
+
+}
+#artvisit {
+
+}
+
+.hidden {
+  display:none;
+}
+
+#spacer {
+margin-top: 80px;
 }
