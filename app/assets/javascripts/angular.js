@@ -53,12 +53,12 @@ function($http, $scope, $location, $window) {
   });
 
   this.deleteSession = function () {
-  console.log(controller)
-  console.log("logging out user")
+  // console.log(controller)
+  // console.log("logging out user")
     $http.delete('/session', {
       //include authenticity_token
     }).success(function(data){
-      console.log("logged off!!!")
+      // console.log("logged off!!!")
       //refresh transgression data once PATCH is complete
       // controller.getArticles();
       $window.location.href = "/";
@@ -134,12 +134,12 @@ app.controller('ArticlesController', ['$http', '$scope', '$location', function($
         controller.dests.push({lat: value.latitude, lng: value.longitude});
       })
 
-      console.log(controller.dests)
+      // console.log(controller.dests)
     });
   }
 
   this.createArticle = function () {
-    console.log("In createArticle")
+    // console.log("In createArticle")
     $http.post('/articles', {
       article: {
         body: controller.newArticle.body,
@@ -156,8 +156,8 @@ app.controller('ArticlesController', ['$http', '$scope', '$location', function($
   }
 
   this.editArticle = function (article) {
-    console.log(this.editedArticle)
-    console.log(this.editedArticle.date_traveled, article.date_traveled)
+    // console.log(this.editedArticle)
+    // console.log(this.editedArticle.date_traveled, article.date_traveled)
 
     $http.patch('/articles/'+ article.id, {
       article: {
@@ -168,21 +168,21 @@ app.controller('ArticlesController', ['$http', '$scope', '$location', function($
         date_traveled: this.editedArticle.date_traveled || article.date_traveled
       }
     }).success(function(data){
-      console.log("edited!!!")
+      // console.log("edited!!!")
       //refresh transgression data once PATCH is complete
       controller.getArticles();
     });
   }
 
   this.deleteArticle = function (article) {
-    console.log(article)
+    // console.log(article)
 
     $http.delete('/articles/'+ article.id, {
 
       //include authenticity_token
     }).success(function(data){
-      console.log(data);
-      console.log("deleted!!!")
+      // console.log(data);
+      // console.log("deleted!!!")
       controller.getArticles()
       //refresh transgression data once PATCH is complete
       // controller.getArticles();
@@ -215,7 +215,7 @@ app.controller('CommentsController', ['$http', '$scope', function($http, $scope)
         body: this.newCommentBody
       }
     }).success(function(data){
-      console.log("added!!!")
+      // console.log("added!!!")
       //refresh transgression data once POST is complete
       $scope.$parent.articleCtrl.getArticles();
     });

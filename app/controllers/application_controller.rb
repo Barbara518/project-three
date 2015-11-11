@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   def welcome
     @user = User.new
-    @disable_nav = true
+    @disable_page = true
   end
 
 
