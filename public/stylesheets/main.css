@@ -10,6 +10,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   background-image: url('/images/bg.png');
+   -webkit-font-smoothing: subpixel-antialiased;
 
 }
 .container {
@@ -18,11 +19,10 @@ body {
     margin-right: 5%
 }
 header {
-  background-image: url('/images/navbg.png');
 
   padding-left: 5%;
   padding-right: 5%;
-  background-color: rgba(200, 200, 200, 0.85);;
+  background-color: rgba(255, 255, 255, 0.85);;
   color: black;
   text-align: center;
   border-radius: 10px;
@@ -40,6 +40,7 @@ header {
   height: auto;
 }
 #navcontainer {
+  background-image: url('/images/navbg.png');
   position: fixed;
   z-index: 2;
     width: inherit;
