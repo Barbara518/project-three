@@ -10,29 +10,29 @@
       <%end%>
     </div>
   </header>
-  <div id='navcontainer'>
-    <div id="nav">
+
+  <div class='navcontainer'>
       <a ng-href="articles" class="linkbutton">View Articles</a>
       <a ng-href="articles/new" class="linkbutton">Create Article</a>
       <form type="hidden" ng-submit="sessionCtrl.deleteSession()">
         <input type="submit" class="linkbutton" value="Log Out"></form>
-      </div>
     </div>
+
   </div>
 
   <script>
   $(document).ready(function() {$("#flashmessage").delay(2500).fadeOut(500);});
 
   $(document).ready(function() {
-    var stickyNavTop = $('#navcontainer').offset().top;
+    var stickyNavTop = $('.navcontainer').offset().top;
 
     var stickyNav = function(){
       var scrollTop = $(window).scrollTop();
 
       if (scrollTop > stickyNavTop) {
-        $('#navcontainer').addClass('sticky');
+        $('.navcontainer').addClass('sticky');
       } else {
-        $('#navcontainer').removeClass('sticky');
+        $('.navcontainer').removeClass('sticky');
       }
     };
 
