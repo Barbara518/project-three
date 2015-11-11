@@ -1,11 +1,22 @@
 <header>
- <!-- <%= image_tag 'logo.png', class: 'logo' %> -->
-<h2>stupid fucking header</h2>
 <div ng-controller="SessionController as sessionCtrl">
 <div ng-show="sessionCtrl.current_user.name">
-<a href='articles' class="linkbutton"> Articles </a> <a href='articles/new' class="linkbutton"> Create an Article </a>
-  <form ng-submit="sessionCtrl.deleteSession()">
+  <div id="nav">
+<a ng-href="articles" class="linkbutton">View Articles</a>
+<a ng-href="articles/new" class="linkbutton">Create Article</a>
+
+  <form type="hidden" ng-submit="sessionCtrl.deleteSession()">
     <input type="submit" class="linkbutton" value="Log Out">
   </form>
 </div>
+  <% if flash[:message]%>
+  <div id="flashmessage">
+  <%= flash[:message]%>
+</div>
+  <%end%>
+</div>
 </header>
+
+<script>
+$(document).ready(function() {$("#flashmessage").delay(2500).fadeOut(500);});
+</script>

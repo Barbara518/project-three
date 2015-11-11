@@ -1,19 +1,26 @@
 
 <main>
+  <div id='spacer'></div>
+  <ng-map id="map" center="40, -79" zoom=5 zoom-to-inlude-markers="true" zoom-control="true" style="display:block, height:400px;">
+  </ng-map>
+  <br>  <br>
+
+  <br>
+  <hr>
+<br><br>
   <form ng-submit = "articleCtrl.createArticle()">
 
-    <input class="search" places-auto-complete types="['geocode']" on-place-changed="findLocation()"/>
+    <input class="search" places-auto-complete types="['geocode']" on-place-changed="findLocation()"/><BR>
 
-    <input type = "text" ng-model = "articleCtrl.newArticle.body"
-      placeholder="Travel Tip"/>
+    <textarea rows="6" cols="50" ng-model = "articleCtrl.newArticle.body"
+      placeholder="Travel Tip"/></textarea><BR>
 
     <input  type="date"  ng-model = "articleCtrl.newArticle.date_traveled"
-      placeholder="date traveled"/>
-    <input type = "submit" />
+      placeholder="date traveled"/><BR>
+    <input class="linkbutton" type = "submit" />
   </form>
 
-  <ng-map id="map" center="40, -79" zoom=5 zoom-to-inlude-markers="true" zoom-control="true" style="display:block, height:400px;">
 
-  </ng-map>
+
 
 </main>
