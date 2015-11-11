@@ -13,7 +13,7 @@
       <span id="artbody"> {{article.body}} </span> </br>
       <span id="artvisit">  Visited by: <b>{{article.username}}</b> on {{article.date_traveled | date: 'longDate'}} </span></br>
     <div ng-show="articleCtrl.user === article.username">
-    <a href="#" class='linkbutton' ng-click="editorEnabled=!editorEnabled">Edit</a>
+    <a href="#" class='linkbutton' ng-click="editorEnabled=!editorEnabled">Edit Your Article</a>
     </div>
     </div>
     <div ng-show="editorEnabled">
@@ -50,7 +50,7 @@
             <textarea rows="6" cols="50" ng-model="commentCtrl.newCommentBody"/></textarea>
             <br/>
             <input type="submit" class="linkbutton" value="Submit Comment" />
-          
+
             </form>
             </div>
               <button class="linkbutton" ng-click="commenter=false">Cancel Comment</button>
@@ -60,11 +60,3 @@
 </div>
 
 </main>
-
-<a href="" ng-click="showme=true">Show</a>
-  <button ng-click="showme=false">Hide</button>
-
-  <div class="wrapper">
-    <p ng-hide="showme">It will appear here!</p>
-    <h2 ng-show="showme">This is mah content, yo!</h2>
-  </div>
