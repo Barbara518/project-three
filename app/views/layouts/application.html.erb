@@ -12,7 +12,7 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'angular-route.min.js', 'angular', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'app.js', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'main', media: 'all', 'data-turbolinks-track' => true %>
 
@@ -37,9 +37,9 @@
     </form>
   </div> -->
 
-  <hr></br>
+  </br>
   <div ng-view> </div>
 
-  <%= yield %>
+  <!-- <= yield %> -->
 </body>
 </html>

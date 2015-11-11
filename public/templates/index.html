@@ -37,9 +37,9 @@
           <span>{{comment.body}} by {{comment.username}}</span></br> </span></br>
             <div ng-controller="CommentsController as commentCtrl">
             <form ng-submit="commentCtrl.createComment()">
-            <input type="text" ng-model="commentCtrl.newCommentBody"/>
+            <input type="textarea" ng-model="commentCtrl.newCommentBody"/>
             <br/>
-            <input type="submit" value="Submit!" />
+            <input type="submit" class="linkbutton" value="Comment" />
             <br/>
             <br/>
         </form>
