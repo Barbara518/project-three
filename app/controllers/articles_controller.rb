@@ -7,7 +7,6 @@ skip_before_action :verify_authenticity_token
 
   def all_articles
     @articles = Article.all
-
   end
 
   def new
@@ -49,4 +48,5 @@ skip_before_action :verify_authenticity_token
   def article_params
     return params.require(:article).permit(:location, :latitude, :longitude, :body, :date_traveled)
   end
+  
 end

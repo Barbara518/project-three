@@ -2,7 +2,7 @@
 
   <header>
     <h2>TRAVELOG</h2>
-      <h3> Share where you've been! </h3>
+    <h3> Share where you've been! </h3>
     <div ng-show="sessionCtrl.current_user.name">
       <% if flash[:message]%>
       <div id="flashmessage">
@@ -13,35 +13,33 @@
   </header>
 
   <div class='navcontainer'>
-      <a ng-href="articles" class="linkbutton">Get Inspired</a>
-      <a ng-href="articles/new" class="linkbutton">Contribute a Travelog</a>
-      <form type="hidden" ng-submit="sessionCtrl.deleteSession()">
-        <input type="submit" class="linkbutton" value="Log Out"></input></form>
+    <a ng-href="articles" class="linkbutton">Get Inspired</a>
+    <a ng-href="articles/new" class="linkbutton">Contribute a Travelog</a>
+    <form type="hidden" ng-submit="sessionCtrl.deleteSession()">
+      <input type="submit" class="linkbutton" value="Log Out"></input></form>
     </div>
 
-  </div>
+</div>
 
-  <script>
-  $(document).ready(function() {$("#flashmessage").delay(2500).fadeOut(500);});
+<script>
+$(document).ready(function() {$("#flashmessage").delay(2500).fadeOut(500);});
 
-  $(document).ready(function() {
-    var stickyNavTop = $('.navcontainer').offset().top;
+$(document).ready(function() {
+  var stickyNavTop = $('.navcontainer').offset().top;
+  var stickyNav = function(){
+    var scrollTop = $(window).scrollTop();
 
-    var stickyNav = function(){
-      var scrollTop = $(window).scrollTop();
-
-      if (scrollTop > stickyNavTop) {
-        $('.navcontainer').addClass('sticky');
-
-      } else {
+    if (scrollTop > stickyNavTop) {
+      $('.navcontainer').addClass('sticky');}
+      else {
         $('.navcontainer').removeClass('sticky');
       }
     };
-
+    
     stickyNav();
 
     $(window).scroll(function() {
       stickyNav();
     });
   });
-  </script>
+</script>

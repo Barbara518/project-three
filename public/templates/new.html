@@ -3,9 +3,10 @@
     <div id='spacer'></div>
     <ng-map id="map" center="40, -79" zoom=5 zoom-to-inlude-markers="true" zoom-control="true" style="display:block, height:400px;">
     </ng-map>
+    
     <hr>
-    <br>
-    <br>
+    <br><br>
+
     <form class="articles" ng-submit = "articleCtrl.createArticle()">
 
       <input class="search" id="search" places-auto-complete types="['geocode']" on-place-changed="findLocation()"/>
@@ -20,8 +21,6 @@
 
     <div id='spacer'></div><br>
     <div id='spacer'></div><br>
-
-
 
   </div>
 </main>

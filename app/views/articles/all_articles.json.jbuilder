@@ -18,5 +18,5 @@ json.articles(@articles) do |art|
     json.article_id com.article_id
     json.body com.body
   end
-
+  
 end
