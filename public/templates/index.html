@@ -1,8 +1,24 @@
 <main ng-controller="ArticlesController as articleCtrl">
 <div id='spacer'></div>
 <div class='container'>
-  <map zoom="2" center="[40.74, -74.18]">
-    <marker ng-repeat="dest in articleCtrl.dests" position="{{dest.lat}}, {{dest.lng}}"></marker>
+  <map default-style="true" zoom="2" center="[40.74, -74.18]">
+    <marker  ng-repeat="dest in articleCtrl.dests"
+             id="{{dest.articleid}}"
+             position="{{dest.lat}}, {{dest.lng}}"
+             on-click="map.showInfoWindow({{dest.articleid}})">
+    </marker>
+    <info-window ng-repeat="dest in articleCtrl.dests" id="{{dest.articleid}}"
+                 visible-on-marker="{{dest.articleid}}">
+  <div >
+    <div id="siteNotice"></div>
+    <h1 id="firstHeading" class="firstHeading">{{dest.name}}</h1>
+    <div id="bodyContent">
+      <p><b>{{dest.location}}</b></p></br>
+      <p>{{dest.articlebody}}</p>
+      <p></p>
+    </div>
+  </div>
+</info-window>
   </map>
 
   <br><br><hr>
