@@ -31,13 +31,14 @@
         <input type="submit" class="linkbutton" value="Delete Article"></br></br>
       </form><br>
       <a href="#" class="linkbutton" ng-click="editorEnabled=!editorEnabled">Cancel</a>
-    </div></br>
+    </div><br><br>
       <span> COMMENTS: </span></br>
 
         <span ng-repeat = "comment in article.comments">
           <span>{{comment.body}} by <b>{{comment.username}}</b></span><br> </span><br>
 
           <button class="linkbutton" ng-click="commenter=true">Add a Comment</button>
+          <br><br>
           <div ng-show="commenter">
             <div ng-controller="CommentsController as commentCtrl">
 
@@ -50,7 +51,7 @@
             <button class="linkbutton" ng-click="commenter=false">Cancel</button>
           </div>
           <hr>
-<br>
+          <br>
         </div>
       </div>
 
