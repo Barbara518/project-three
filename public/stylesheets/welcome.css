@@ -1,11 +1,10 @@
-
-
 html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Arapey', serif;
 }
+
 body {
   background: white !important;
 }
@@ -18,7 +17,7 @@ body {
   height: 115%;
   overflow: hidden;
 }
-/*Header*/
+
 #header {
   text-align: center;
   height: 60px;
@@ -29,8 +28,6 @@ body {
   margin-top: 5px;
   font-weight: 150;
 }
-
-/*Container*/
 
 #container {
   width: 100%;
@@ -46,8 +43,6 @@ input[value="play"]:checked ~ #slider figure {
   animation: 25s slidy infinite;
 }
 
-/*Slider*/
-
 #slider {
   overflow: hidden;
 }
@@ -56,7 +51,6 @@ input[value="play"]:checked ~ #slider figure {
   width: 25%;
   min-height: 900px;
   overflow:hidden;
-  /*float: left;*/
 }
 
 #slider figure {
@@ -70,8 +64,6 @@ input[value="play"]:checked ~ #slider figure {
   overflow:hidden;
 }
 
-/*Animation*/
-
 @keyframes slidy {
 0% { left: 0%; }
 20% { left: 0%; }
@@ -83,13 +75,9 @@ input[value="play"]:checked ~ #slider figure {
 95% { left: -300%; }
 }
 
-/*Navigation*/
-
 #navigation {
   display: none;
 }
-
-/*Form*/
 
 .button {
   border-radius: 50%;
@@ -105,6 +93,7 @@ input[value="play"]:checked ~ #slider figure {
   background-color: #f1f1f1;
   border: 1px solid #f1f1f1;
 }
+
 .form-container {
   background: rgba(185, 194, 169, .3);
   padding: 1% 2%;
@@ -117,14 +106,17 @@ input[value="play"]:checked ~ #slider figure {
   z-index: 2;
   height: auto;
 }
+
 label.form-header{
   font-size: 1.25rem;
   margin: .8rem;
   color: #222;
 }
+
 label.form-header:hover {
   cursor: pointer;
 }
+
 .form-container h1 {
   font-size: 1.25rem;
   margin: .8rem;
@@ -142,6 +134,7 @@ label.form-label{
   margin: 3px;
   color: #444;
 }
+
 ::-webkit-input-placeholder {
    color: #eee;
 }
@@ -157,6 +150,7 @@ label.form-label{
 :-ms-input-placeholder {
    color: #eee;
 }
+
 input[type=text], input[type=email], input[type=password] {
     width: 90%;
     padding: 10px;
@@ -180,8 +174,6 @@ input[type=submit]:hover {
   background: rgba(185, 194, 169, .80);
   box-shadow: 2px 2px 10px 5px  #888888;
 }
-
-
 
 .hidden {
   display: none;
