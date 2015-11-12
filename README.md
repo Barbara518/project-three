@@ -25,6 +25,7 @@ The Ruby application was built first followed by the creation of the models (use
 
 ##Links
 [Project 3 Heroku link](https://secure-depths-2496.herokuapp.com)
+[Project 3 Wirefame](https://github.com/Barbara518/project-three/blob/development/Project3Mockup.pdf)
 
 ##Features We Would Like To Add
 
