@@ -16,7 +16,7 @@
     <div ng-hide="editorEnabled">
       <span id="artloc"> &#9658; {{article.location}} </span> </br></br>
       <span id="artbody"> {{article.body}} </span> </br>
-      <span id="artvisit">  Visited by: <b>{{article.username}}</b> on {{article.date_traveled | date: 'MMMM yyyy'}} </span>
+      <span id="artvisit">  VISITED BY: <b>{{article.username}}</b> on {{article.date_traveled | date: 'MMMM yyyy'}} </span>
 
     </br></br>
 
@@ -49,10 +49,11 @@
 
   <br><br>
 
-  <span> COMMENTS: </span></br>
+  <span> COMMENTS: </span>
+  <br>
 
   <span ng-repeat = "comment in article.comments">
-    <span>{{comment.body}} by <b>{{comment.username}}</b></span></span><br><br>
+    <span id="commentdisplay">{{comment.body}} by <b>{{comment.username}}</b></span><br></span><br>
 
     <button class="linkbutton" ng-click="commenter=true">Add a Comment</button>
 
