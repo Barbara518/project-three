@@ -162,16 +162,13 @@ app.controller('ArticlesController', ['$http', '$scope', '$location', function($
   }
 
   this.editArticle = function (article) {
-    // console.log(article)
-    // console.log(this)
-    // console.log(this.editedArticle)
-    // console.log(this.editedArticle.date_traveled, article.date_traveled)
+
     $http.patch('/articles/'+ article.id, {
       article: {
         location: article.location,
         latitude: article.latitude,
         longitude: article.longitude,
-        body: this.editedArticle.body || article.body,
+        body: article.body,
         date_traveled: article.date_traveled
       }
     }).success(function(data){
