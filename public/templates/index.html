@@ -1,27 +1,9 @@
 <main ng-controller="ArticlesController as articleCtrl">
 <div id='spacer'></div>
 <div class='container'>
-  <map class ="googlemap"
+  <map id="bigMap" class ="googlemap"
        zoom="3"
        center="[40.74, -74.18]">
-    <marker  ng-repeat="dest in articleCtrl.dests"
-             id="{{dest.articleid}}"
-             position="{{dest.lat}}, {{dest.lng}}"
-             on-click="map.showInfoWindow({{dest.articleid}})">
-    </marker>
-    <info-window max-width="220"
-                 ng-repeat="dest in articleCtrl.dests"
-                 id="{{dest.articleid}}">
-  <div >
-    <div id="siteNotice"></div>
-    <h1 id="firstHeading" class="firstHeading">{{dest.name}}</h1>
-    <div id="bodyContent">
-      <p><b>{{dest.location}}</b></p></br>
-      <p>{{dest.articlebody}}</p>
-      <p></p>
-    </div>
-  </div>
-</info-window>
   </map>
 
   <hr><br>
@@ -30,7 +12,7 @@
     <div ng-hide="editorEnabled">
     <span id="artloc"> &#9658; {{article.location}} </span> </br></br>
       <span id="artbody"> {{article.body}} </span> </br>
-      <span id="artvisit">  Visited by: <b>{{article.username}}</b> on {{article.date_traveled | date: 'longDate'}} </span>
+      <span id="artvisit">  Visited by: <b>{{article.username}}</b> on {{article.date_traveled | date: 'MMMM yyyy'}} </span>
     </br></br>
     <div ng-show="articleCtrl.user === article.username">
     <a href="#" class='linkbutton' ng-click="editorEnabled=!editorEnabled">Edit</a>
@@ -49,13 +31,14 @@
         <input type="submit" class="linkbutton" value="Delete Article"></br></br>
       </form><br>
       <a href="#" class="linkbutton" ng-click="editorEnabled=!editorEnabled">Cancel</a>
-    </div></br>
+    </div><br><br>
       <span> COMMENTS: </span></br>
 
         <span ng-repeat = "comment in article.comments">
           <span>{{comment.body}} by <b>{{comment.username}}</b></span><br> </span><br>
 
           <button class="linkbutton" ng-click="commenter=true">Add a Comment</button>
+          <br><br>
           <div ng-show="commenter">
             <div ng-controller="CommentsController as commentCtrl">
 
@@ -68,7 +51,7 @@
             <button class="linkbutton" ng-click="commenter=false">Cancel</button>
           </div>
           <hr>
-<br>
+          <br>
         </div>
       </div>
 

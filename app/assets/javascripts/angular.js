@@ -80,6 +80,8 @@ function($http, $scope, $location, $window) {
 
 
 var locations = []
+var markers = []
+var infoWindows = []
 ///////////////////////////////////////////////////////////////////////
 //////////////////////////Article Controller//////////////////////////
 /////////////////////////////////////////////////////////////////////
@@ -130,22 +132,48 @@ app.controller('ArticlesController', ['$http', '$scope', '$location', function($
       controller.articles = data.articles
       controller.user = data.user
       controller.dests = []
+      controller.markers = []
+
+      var mapOptions = {
+                zoom: 3,
+                scrollwheel:false,
+                center: new google.maps.LatLng(40.74, -74.18),
+                mapTypeId: google.maps.MapTypeId.TERRAIN
+            }
+
+      var map = new google.maps.Map(document.getElementById('bigMap'), mapOptions);
 
       angular.forEach(data.articles, function (value) {
-        controller.dests.push({lat: value.latitude,
-                               lng: value.longitude,
-                               name: value.username,
-                               location: value.location,
-                               articleid: value.id,
-                               articlebody: value.body});
-        console.log(value);
+        var marker = new google.maps.Marker({
+                   map: map,
+                   position: new google.maps.LatLng(value.latitude, value.longitude),
+                   animation: "DROP"
+               });
+
+         var contentString =   '<div >' +'<div id="siteNotice"></div>'+
+             '<h1 id="firstHeading" class="firstHeading">'+ value.username + '</h1>' +
+             '<div id="bodyContent">' +
+               '<p><b>'+value.location+'</b></p></br>' +
+               '<p>'+value.body+'</p>' +
+               '<p></p>' +
+            '</div>' +
+           '</div>'
+
+         var infowindow = new google.maps.InfoWindow({
+           content: contentString
+           });
+
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+
       })
+
 
     });
   }
 
   this.createArticle = function () {
-    // console.log("In createArticle")
     $http.post('/articles', {
       article: {
         body: controller.newArticle.body,
