@@ -19,6 +19,7 @@ body {
 .googlemap{
   height: 700px;
 }
+
 header {
   background-image: url('/images/navbg.png');
   opacity: .5;
@@ -37,43 +38,43 @@ b {
   color: red;
 }
 
-#search    {
+#search {
   border-radius: 1px;
-  width: 30em;
+  width: 30%;
   height: 2.5em;
   border-style: solid;
   border-width: thin;
   border-color: lightgray;
-font-size: 1em;
+  font-size: 1em;
 }
 
 #expiry {
   border-radius: 1px;
-  width: 15em;
+  width: 20%;
   height: 2.5em;
   border-style: solid;
   border-width: thin;
   border-color: lightgray;
-font-size: 1.2em;
-text-align: justify;
+  font-size: 1.2em;
+  text-align: justify;
 }
 
 textarea {
-border-style: ridge;
-border-width: thin;
-font-style: normal;
-font-size: 1em;
+  border-style: ridge;
+  border-width: thin;
+  font-style: normal;
+  font-size: 1em;
 }
 
 footer {
-background-image: url('/images/navbg.png');
-border-style: solid;
-width: 90%;
-height: auto;
-font-size: 1em;
-justify-content: space-around;
-display: inline-flex;
-color: #6B6B6B;
+  background-image: url('/images/navbg.png');
+  border-style: solid;
+  width: 90%;
+  height: auto;
+  font-size: 1em;
+  justify-content: space-around;
+  display: inline-flex;
+  color: #6B6B6B;
 }
 
 .git {
@@ -89,11 +90,23 @@ color: #6B6B6B;
 .git:hover {
   opacity: 1;
 }
+.articles {
+  padding-left: 5em;
+  padding-right: 5em;
+  width: 100%;
+}
+#commentdisplay {
+word-wrap: break-word;
+}
+
+#textarea {
+  width: 75%;
+  height: 5em;
+}
 
 .navcontainer {
   width: 100%;
   display: inline-flex;
-  /*overflow: hidden;*/
   justify-content: space-between;
   background-color: rgba(200, 200, 200, 0.5);
   text-align: center;
@@ -106,6 +119,7 @@ color: #6B6B6B;
   border-style: solid;
   border-width: thin;
   transition: all 2.5s ease;
+  min-width: 25em;
 }
 
 .sticky {
@@ -122,7 +136,7 @@ h2 {
 
 .linkbutton {
   text-transform: uppercase;
-  font-size: 1em;
+  font-size: 90%;
   overflow: hidden;
   text-decoration: none;
   background: linear-gradient(#424242, #adadad);
@@ -160,7 +174,6 @@ h2 {
   height: 1.8em;
   min-width: 4.5em;
   transition: all 1.0s ease;
-
 }
 
 .welbutton:hover {
@@ -168,7 +181,6 @@ h2 {
   text-decoration: none;
   cursor: pointer;
 }
-
 
 form, input {
   display: inline-block;
@@ -180,19 +192,10 @@ form, input {
   text-shadow: 2px 2px 4px white;
 }
 
-.articles {
-  padding: 1em;
-}
-
 #artloc {
   margin-left: 6.5%;
   margin-top: 15%;
   font-size: 1.75em;
-}
-#artbody {
-}
-#artvisit {
-
 }
 
 .hidden {
@@ -202,3 +205,9 @@ form, input {
 #spacer {
   margin-top: 80px;
 }
+
+/*to be used later for improvements*/
+/*
+artbody {  }
+artvisit {  }
+*/
