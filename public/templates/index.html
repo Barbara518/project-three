@@ -1,4 +1,5 @@
 <main ng-controller="ArticlesController as articleCtrl">
+<<<<<<< HEAD
   <div id='spacer'></div>
   <div class='container'>
     <map zoom="2" center="[40.74, -74.18]">
@@ -42,6 +43,66 @@
         <br>
 
         <span> Comments: </span><br>
+=======
+<div id='spacer'></div>
+<div class='container'>
+  <map default-style="true" zoom="2" center="[40.74, -74.18]">
+    <marker  ng-repeat="dest in articleCtrl.dests"
+             id="{{dest.articleid}}"
+             position="{{dest.lat}}, {{dest.lng}}"
+             on-click="map.showInfoWindow({{dest.articleid}})">
+    </marker>
+    <info-window ng-repeat="dest in articleCtrl.dests" id="{{dest.articleid}}"
+                 visible-on-marker="{{dest.articleid}}">
+  <div >
+    <div id="siteNotice"></div>
+    <h1 id="firstHeading" class="firstHeading">{{dest.name}}</h1>
+    <div id="bodyContent">
+      <p><b>{{dest.location}}</b></p></br>
+      <p>{{dest.articlebody}}</p>
+      <p></p>
+    </div>
+  </div>
+</info-window>
+  </map>
+
+  <br><br><hr>
+
+  <div ng-repeat = "article in articleCtrl.articles">
+    <div ng-hide="editorEnabled">
+    <span id="artloc">  {{article.location}} </span> </br></br>
+      <span id="artbody"> {{article.body}} </span> </br>
+      <span id="artvisit">  Visited by: <b>{{article.username}}</b> on {{article.date_traveled | date: 'longDate'}} </span>
+    </br></br>
+    <div ng-show="articleCtrl.user === article.username">
+    <a href="#" class='linkbutton' ng-click="editorEnabled=!editorEnabled">Edit Your Article</a>
+    </div>  </br></br>
+    </div>
+    <div ng-show="editorEnabled">
+      <form ng-submit= "articleCtrl.editArticle(article)">
+          <!-- <input class="search" places-auto-complete types="['geocode']"
+          on-place-changed="findLocation()" ng-model="articleCtrl.editedArticle.location"
+            placeholder="{{article.location}}"><br/> -->
+        <!-- <input type="text" ng-model="articleCtrl.editedArticle.location"
+          placeholder="{{article.location}}"><br/> -->
+          <textarea rows="6" cols="50" ng-model = "articleCtrl.editedArticle.body"
+            placeholder="{{article.body}}"></textarea></br>
+
+        <!-- <input type="text" ng-model="articleCtrl.editedArticle.latitude"
+          placeholder="{{article.latitude}}"><br/>
+        <input type="text"  ng-model="articleCtrl.editedArticle.longitude"
+          placeholder="{{article.longitude}}"><br/> -->
+        <!-- <input type="date" ng-model="articleCtrl.editedArticle.date_traveled"
+          value="{{article.date_traveled | date:'yyyy-MM-dd' }}"><br/> -->
+        <input type="submit" class="linkbutton" value="Submit Edit">
+      </form><br>
+      <form ng-submit="articleCtrl.deleteArticle(article)">
+        <input type="submit" class="linkbutton" value="Delete Article"></br></br>
+      </form><br>
+      <a href="#" class="linkbutton" ng-click="editorEnabled=!editorEnabled">Cancel</a>
+    </div></br>
+      <span> Comments: </span></br>
+>>>>>>> 4e875af73781b2a978505e751d58fb9226e768bd
         <span ng-repeat = "comment in article.comments">
           <span>{{comment.body}} by <b>{{comment.username}}</b></span><br> </span><br>
 
