@@ -58,7 +58,9 @@ font-size: 2em;
 }
 
 .linkbutton {
-font-size: 15px;
+font-size: 1em;
+overflow: hidden;
+
 text-decoration: none;
 background: linear-gradient(#424242, #adadad);
 color: #333333;
@@ -67,7 +69,7 @@ color: #ffffff;
 border: solid #000000 1px;
 padding: 7px 20px 7px 20px;
 margin:2px;
-height: 30px;
+height: 1.8em;
 min-width: 100px;
 }
 
