@@ -11,10 +11,11 @@
     <div ng-hide="editorEnabled">
     <span id="artloc">  {{article.location}} </span> </br></br>
       <span id="artbody"> {{article.body}} </span> </br>
-      <span id="artvisit">  Visited by: <b>{{article.username}}</b> on {{article.date_traveled | date: 'longDate'}} </span></br>
+      <span id="artvisit">  Visited by: <b>{{article.username}}</b> on {{article.date_traveled | date: 'longDate'}} </span>
+    </br></br>
     <div ng-show="articleCtrl.user === article.username">
     <a href="#" class='linkbutton' ng-click="editorEnabled=!editorEnabled">Edit Your Article</a>
-    </div>
+    </div>  </br></br>
     </div>
     <div ng-show="editorEnabled">
       <form ng-submit= "articleCtrl.editArticle(article)">
@@ -35,7 +36,7 @@
         <input type="submit" class="linkbutton" value="Submit Edit">
       </form><br>
       <form ng-submit="articleCtrl.deleteArticle(article)">
-        <input type="submit" class="linkbutton" value="Delete Article">
+        <input type="submit" class="linkbutton" value="Delete Article"></br></br>
       </form><br>
       <a href="#" class="linkbutton" ng-click="editorEnabled=!editorEnabled">Cancel</a>
     </div></br>
