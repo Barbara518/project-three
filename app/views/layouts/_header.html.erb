@@ -1,7 +1,8 @@
 <div ng-controller="SessionController as sessionCtrl">
 
   <header>
-    <h2>MEMORY TRAVELER</h2>
+    <h2>TRAVELOG</h2>
+      <h3> Share where you've been! </h3>
     <div ng-show="sessionCtrl.current_user.name">
       <% if flash[:message]%>
       <div id="flashmessage">
@@ -12,8 +13,8 @@
   </header>
 
   <div class='navcontainer'>
-      <a ng-href="articles" class="linkbutton">View Articles</a>
-      <a ng-href="articles/new" class="linkbutton">Create Article</a>
+      <a ng-href="articles" class="linkbutton">Get Inspired</a>
+      <a ng-href="articles/new" class="linkbutton">Contribute a Travelog</a>
       <form type="hidden" ng-submit="sessionCtrl.deleteSession()">
         <input type="submit" class="linkbutton" value="Log Out"></input></form>
     </div>

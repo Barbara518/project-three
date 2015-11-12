@@ -30,7 +30,7 @@
       <span id="artvisit">  Visited by: <b>{{article.username}}</b> on {{article.date_traveled | date: 'longDate'}} </span>
     </br></br>
     <div ng-show="articleCtrl.user === article.username">
-    <a href="#" class='linkbutton' ng-click="editorEnabled=!editorEnabled">Edit Your Article</a>
+    <a href="#" class='linkbutton' ng-click="editorEnabled=!editorEnabled">Edit</a>
     </div>  </br></br>
     </div>
     <div ng-show="editorEnabled">
@@ -52,17 +52,17 @@
         <span ng-repeat = "comment in article.comments">
           <span>{{comment.body}} by <b>{{comment.username}}</b></span><br> </span><br>
 
-          <button class="linkbutton" ng-click="commenter=true">Comment</button>
+          <button class="linkbutton" ng-click="commenter=true">Add a Comment</button>
           <div ng-show="commenter">
             <div ng-controller="CommentsController as commentCtrl">
 
               <form ng-submit="commentCtrl.createComment()">
                 <textarea rows="6" cols="50" ng-model="commentCtrl.newCommentBody"></textarea>
                 <br/>
-                <input type="submit" class="linkbutton" value="Submit Comment" />
+                <input type="submit" class="linkbutton" value="Submit"/>
               </form>
             </div>
-            <button class="linkbutton" ng-click="commenter=false">Cancel Comment</button>
+            <button class="linkbutton" ng-click="commenter=false">Cancel</button>
           </div>
           <hr>
 <br>

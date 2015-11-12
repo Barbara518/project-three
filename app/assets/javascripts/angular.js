@@ -104,6 +104,7 @@ app.controller('ArticlesController', ['$http', '$scope', '$location', function($
        )
        var mapOptions = {
                  zoom: 4,
+                 scrollwheel:false,
                  center: new google.maps.LatLng(lat,lng),
                  mapTypeId: google.maps.MapTypeId.TERRAIN
              }
@@ -222,6 +223,9 @@ app.controller('CommentsController', ['$http', '$scope', function($http, $scope)
       // console.log("added!!!")
       //refresh transgression data once POST is complete
       $scope.$parent.articleCtrl.getArticles();
+
+    }).error(function (err){
+      console.log("BLANK comment")
     });
   }
 
