@@ -1,8 +1,8 @@
+<div ng-controller="SessionController as sessionCtrl">
 
-<header>
-  <div ng-controller="SessionController as sessionCtrl">
+  <header>
+    <h2>Memory Traveler</h2>
     <div ng-show="sessionCtrl.current_user.name">
-      <h2>Memory Traveler</h2>
       <% if flash[:message]%>
       <div id="flashmessage">
         <%= flash[:message]%>
@@ -10,37 +10,37 @@
       <%end%>
     </div>
   </header>
-  <div id='navcontainer'>
-    <div id="nav">
+
+  <div class='navcontainer'>
       <a ng-href="articles" class="linkbutton">View Articles</a>
       <a ng-href="articles/new" class="linkbutton">Create Article</a>
       <form type="hidden" ng-submit="sessionCtrl.deleteSession()">
-        <input type="submit" class="linkbutton" value="Log Out">
-      </form>
+        <input type="submit" class="linkbutton" value="Log Out"></form>
     </div>
-  </div>
 
+  </div>
 
   <script>
   $(document).ready(function() {$("#flashmessage").delay(2500).fadeOut(500);});
 
   $(document).ready(function() {
-  var stickyNavTop = $('#navcontainer').offset().top;
+    var stickyNavTop = $('.navcontainer').offset().top;
 
-  var stickyNav = function(){
-  var scrollTop = $(window).scrollTop();
+    var stickyNav = function(){
+      var scrollTop = $(window).scrollTop();
 
-  if (scrollTop > stickyNavTop) {
-      $('#navcontainer').addClass('sticky');
-  } else {
-      $('#navcontainer').removeClass('sticky');
-  }
-  };
+      if (scrollTop > stickyNavTop) {
+        $('.navcontainer').addClass('sticky');
 
-  stickyNav();
+      } else {
+        $('.navcontainer').removeClass('sticky');
+      }
+    };
 
-  $(window).scroll(function() {
+    stickyNav();
+
+    $(window).scroll(function() {
       stickyNav();
-  });
+    });
   });
   </script>
