@@ -3,25 +3,19 @@
 <% redirect_local %>
 <%end%>
 
-<div id="overflowhidder">
+<div  id="overflowhidder">
 
-<!-- header -->
 <header>
   <h1> TRAVELOG </h1>
   <h3> Share where you've been! </h3>
-
-  <!-- nav -->
   <div id="navigation">
     <label class="play" for="play">Auto-Play</label>
   </div>
-
 </header>
 <hr>
-<!-- container -->
+
 <div id="container">
   <input type="checkbox" value="play" name="play" id="play" checked="yes"/>
-
-  <!-- slider -->
   <div id="slider">
     <figure>
       <%= image_tag '1.jpg' %>
@@ -31,7 +25,9 @@
     </figure>
   </div>
 </div>
+
 <br><br>
+
 <div class="form-container">
   <h4>A forum for travel enthusiasts to exchange insider tips and get inspired for their next adventure.</h4>
   <form  action="<%= session_path %>" autocomplete="on" method="post">
@@ -71,6 +67,5 @@
 <script>
 $('#signupbutton').click(function (event) {
   $('#signup-form').toggleClass('hidden');
-  console.log('work');
 })
 </script>
