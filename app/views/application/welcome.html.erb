@@ -6,7 +6,8 @@
 
 <!-- header -->
 <header>
-  <h1> MEMORY TRAVELER </h1>
+  <h1> TRAVELOG </h1>
+  <h3> Share where you've been! </h3>
 
   <!-- nav -->
   <div id="navigation">
@@ -32,30 +33,32 @@
 </div>
 <br><br>
 <div class="form-container">
+  <h4>A forum for travel enthusiasts to exchange insider tips and get inspired for their next adventure.</h4>
   <form  action="<%= session_path %>" autocomplete="on" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
 
-    <label for="username" class="form-label"><b>EMAIL</b> </label>
+    <label for="username" class="form-label"><h5>EMAIL</h5> </label>
     <input id="username" name="user[email]" required="required" type="email" placeholder="mymail@mail.com"/>
 
-    <label for="password" class="form-label"> <b>PASSWORD </b></label>
+    <label for="password" class="form-label"> <h5>PASSWORD </h5></label>
     <input id="password" name="user[password]" required="required" type="password" placeholder="eg. X8df!90EO" />
     <input class='welbutton' type="submit" value="LOG IN" />
-  </form><br>
-  <label class='welbutton' id="signupbutton"><b>NEW USER</b></label>
+  </form>
+  <br>
+  <label id="signupbutton"><h5>NEW USER</h5></label>
 
   <div id="signup-form" class="hidden">
     <form  action="<%= users_path %>" autocomplete="on" method="post">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
       <br>
       <hr>
-      <label for="usernamesignup" class="form-label"><b>NAME</b></label>
+      <label for="usernamesignup" class="form-label"><h5>NAME</h5></label>
       <input id="usernamesignup" name="user[name]" required="required" type="text" placeholder="John Smith" />
 
-      <label for="emailsignup" class="form-label"> <b>EMAIL</b></label>
+      <label for="emailsignup" class="form-label"> <h5>EMAIL</h5></label>
       <input id="emailsignup" name="user[email]" required="required" type="email" placeholder="mysupermail@mail.com"/>
 
-      <label for="passwordsignup" class="form-label"><b>PASSWORD</b> </label>
+      <label for="passwordsignup" class="form-label"><h5>PASSWORD</h5> </label>
       <input id="passwordsignup" name="user[password]" required="required" type="password" placeholder="eg. X8df!90EO"/>
 
       <input id="signupbutton" class='welbutton' type="submit" value="Sign up"/>

@@ -1,14 +1,17 @@
 <main ng-controller="ArticlesController as articleCtrl">
 <div id='spacer'></div>
 <div class='container'>
-  <map default-style="true" zoom="2" center="[40.74, -74.18]">
+  <map class ="googlemap"
+       zoom="3"
+       center="[40.74, -74.18]">
     <marker  ng-repeat="dest in articleCtrl.dests"
              id="{{dest.articleid}}"
              position="{{dest.lat}}, {{dest.lng}}"
              on-click="map.showInfoWindow({{dest.articleid}})">
     </marker>
-    <info-window ng-repeat="dest in articleCtrl.dests" id="{{dest.articleid}}"
-                 visible-on-marker="{{dest.articleid}}">
+    <info-window max-width="220"
+                 ng-repeat="dest in articleCtrl.dests"
+                 id="{{dest.articleid}}">
   <div >
     <div id="siteNotice"></div>
     <h1 id="firstHeading" class="firstHeading">{{dest.name}}</h1>
@@ -30,13 +33,13 @@
       <span id="artvisit">  Visited by: <b>{{article.username}}</b> on {{article.date_traveled | date: 'longDate'}} </span>
     </br></br>
     <div ng-show="articleCtrl.user === article.username">
-    <a href="#" class='linkbutton' ng-click="editorEnabled=!editorEnabled">Edit Your Article</a>
+    <a href="#" class='linkbutton' ng-click="editorEnabled=!editorEnabled">Edit</a>
     </div>  </br></br>
     </div>
     <div ng-show="editorEnabled">
       <form ng-submit= "articleCtrl.editArticle(article)">
 
-          <textarea rows="6" cols="50" ng-model = "articleCtrl.editedArticle.body"
+          <textarea rows="6" cols="50" ng-model = "article.body"
             placeholder="{{article.body}}"></textarea></br>
 
 
@@ -47,22 +50,22 @@
       </form><br>
       <a href="#" class="linkbutton" ng-click="editorEnabled=!editorEnabled">Cancel</a>
     </div></br>
-      <span> Comments: </span></br>
+      <span> COMMENTS: </span></br>
 
         <span ng-repeat = "comment in article.comments">
           <span>{{comment.body}} by <b>{{comment.username}}</b></span><br> </span><br>
 
-          <button class="linkbutton" ng-click="commenter=true">Comment</button>
+          <button class="linkbutton" ng-click="commenter=true">Add a Comment</button>
           <div ng-show="commenter">
             <div ng-controller="CommentsController as commentCtrl">
 
               <form ng-submit="commentCtrl.createComment()">
                 <textarea rows="6" cols="50" ng-model="commentCtrl.newCommentBody"></textarea>
                 <br/>
-                <input type="submit" class="linkbutton" value="Submit Comment" />
+                <input type="submit" class="linkbutton" value="Submit"/>
               </form>
             </div>
-            <button class="linkbutton" ng-click="commenter=false">Cancel Comment</button>
+            <button class="linkbutton" ng-click="commenter=false">Cancel</button>
           </div>
           <hr>
 <br>
