@@ -16,6 +16,9 @@ body {
   margin-right: 5%;
 }
 
+.googlemap{
+  height: 700px;
+}
 header {
   background-image: url('/images/navbg.png');
   opacity: .5;
