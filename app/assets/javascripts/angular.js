@@ -131,10 +131,15 @@ app.controller('ArticlesController', ['$http', '$scope', '$location', function($
       controller.dests = []
 
       angular.forEach(data.articles, function (value) {
-        controller.dests.push({lat: value.latitude, lng: value.longitude});
+        controller.dests.push({lat: value.latitude,
+                               lng: value.longitude,
+                               name: value.username,
+                               location: value.location,
+                               articleid: value.id,
+                               articlebody: value.body});
+        console.log(value);
       })
 
-      // console.log(controller.dests)
     });
   }
 
