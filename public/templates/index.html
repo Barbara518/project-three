@@ -1,49 +1,4 @@
 <main ng-controller="ArticlesController as articleCtrl">
-<<<<<<< HEAD
-  <div id='spacer'></div>
-  <div class='container'>
-    <map zoom="2" center="[40.74, -74.18]">
-      <marker ng-repeat="dest in articleCtrl.dests" position="{{dest.lat}}, {{dest.lng}}"></marker>
-    </map>
-
-    <br><br><hr><br>
-
-    <div ng-repeat = "article in articleCtrl.articles">
-      <div ng-hide="editorEnabled">
-        <span id="artloc">  {{article.location}} </span> <br><br>
-        <span id="artbody"> {{article.body}} </span> <br>
-        <span id="artvisit">  Visited by: <b>{{article.username}}</b> on {{article.date_traveled | date: 'longDate'}} </span>
-        <br><br>
-        <div ng-show="articleCtrl.user === article.username">
-          <a href="#" class='linkbutton' ng-click="editorEnabled=!editorEnabled">Edit Your Article</a>
-        </div>
-
-        <br><br>
-
-      </div>
-
-      <div ng-show="editorEnabled">
-
-        <form ng-submit = "articleCtrl.editArticle(article)">
-          <textarea rows="6" cols="50" ng-model = "articleCtrl.newArticle.body"
-          placeholder="{{article.body}}"></textarea><br>
-            <input type="submit" class="linkbutton" value="Submit Edit" />
-          </form>
-
-          <br>
-
-          <form ng-submit="articleCtrl.deleteArticle(article)">
-            <input type="submit" class="linkbutton" value="Delete Article"/><br><br>
-          </form>
-
-          <br>
-          <a href="#" class="linkbutton" ng-click="editorEnabled=!editorEnabled">Cancel</a>
-        </div>
-
-        <br>
-
-        <span> Comments: </span><br>
-=======
 <div id='spacer'></div>
 <div class='container'>
   <map default-style="true" zoom="2" center="[40.74, -74.18]">
@@ -66,11 +21,11 @@
 </info-window>
   </map>
 
-  <br><br><hr>
+  <hr><br>
 
-  <div ng-repeat = "article in articleCtrl.articles">
+  <div class="articles" ng-repeat = "article in articleCtrl.articles">
     <div ng-hide="editorEnabled">
-    <span id="artloc">  {{article.location}} </span> </br></br>
+    <span id="artloc"> &#9658; {{article.location}} </span> </br></br>
       <span id="artbody"> {{article.body}} </span> </br>
       <span id="artvisit">  Visited by: <b>{{article.username}}</b> on {{article.date_traveled | date: 'longDate'}} </span>
     </br></br>
@@ -84,7 +39,7 @@
           <textarea rows="6" cols="50" ng-model = "articleCtrl.editedArticle.body"
             placeholder="{{article.body}}"></textarea></br>
 
-        
+
         <input type="submit" class="linkbutton" value="Submit Edit">
       </form><br>
       <form ng-submit="articleCtrl.deleteArticle(article)">
@@ -93,11 +48,7 @@
       <a href="#" class="linkbutton" ng-click="editorEnabled=!editorEnabled">Cancel</a>
     </div></br>
       <span> Comments: </span></br>
-<<<<<<< HEAD
 
-=======
->>>>>>> 4e875af73781b2a978505e751d58fb9226e768bd
->>>>>>> 545dd1356b028865435c4c92afff17cfa9148f3d
         <span ng-repeat = "comment in article.comments">
           <span>{{comment.body}} by <b>{{comment.username}}</b></span><br> </span><br>
 
@@ -114,7 +65,7 @@
             <button class="linkbutton" ng-click="commenter=false">Cancel Comment</button>
           </div>
           <hr>
-
+<br>
         </div>
       </div>
 
