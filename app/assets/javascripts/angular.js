@@ -223,6 +223,9 @@ app.controller('CommentsController', ['$http', '$scope', function($http, $scope)
       // console.log("added!!!")
       //refresh transgression data once POST is complete
       $scope.$parent.articleCtrl.getArticles();
+
+    }).error(function (err){
+      console.log("BLANK comment")
     });
   }
 
