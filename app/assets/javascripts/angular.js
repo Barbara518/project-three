@@ -161,14 +161,9 @@ app.controller('ArticlesController', ['$http', '$scope', '$location', function($
   }
 
   this.editArticle = function (article) {
-<<<<<<< HEAD
-
-    console.log(article)
-    console.log(this)
-=======
-    console.log(this.editedArticle)
+    // console.log(article)
+    // console.log(this)
     // console.log(this.editedArticle)
->>>>>>> 4e875af73781b2a978505e751d58fb9226e768bd
     // console.log(this.editedArticle.date_traveled, article.date_traveled)
     $http.patch('/articles/'+ article.id, {
       article: {
