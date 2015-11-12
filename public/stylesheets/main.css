@@ -39,7 +39,7 @@ b {
 
 #search    {
   border-radius: 1px;
-  width: 30em;
+  width: 30%;
   height: 2.5em;
   border-style: solid;
   border-width: thin;
@@ -49,7 +49,7 @@ font-size: 1em;
 
 #expiry {
   border-radius: 1px;
-  width: 15em;
+  width: 20%;
   height: 2.5em;
   border-style: solid;
   border-width: thin;
@@ -89,7 +89,14 @@ color: #6B6B6B;
 .git:hover {
   opacity: 1;
 }
-
+.articles {
+  padding: 1em;
+    width: 100%;
+}
+#textarea {
+  width: 75%;
+  height: 5em;
+}
 .navcontainer {
   width: 100%;
   display: inline-flex;
@@ -178,10 +185,6 @@ form, input {
   font-weight: bolder;
   font-size: 1.3em;
   text-shadow: 2px 2px 4px white;
-}
-
-.articles {
-  padding: 1em;
 }
 
 #artloc {
