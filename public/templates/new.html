@@ -10,7 +10,7 @@
 
       <input class="search" id="search" places-auto-complete types="['geocode']" on-place-changed="findLocation()"/>
       <br><br>
-      <textarea rows="6" cols="150" ng-model = "articleCtrl.newArticle.body"
+      <textarea id='textarea' ng-model = "articleCtrl.newArticle.body"
       placeholder="Enter a travel tip"/></textarea>
       <br>
       <input id="expiry" name="expiry" type="month" ng-model = "articleCtrl.newArticle.date_traveled">
