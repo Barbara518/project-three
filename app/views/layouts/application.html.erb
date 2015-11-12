@@ -26,4 +26,7 @@
   <div ng-view> </div>
 
   <%= yield %>
+
+  <%= render 'layouts/footer' unless @disable_page %>
+
 </html>

@@ -21,11 +21,11 @@
 </info-window>
   </map>
 
-  <br><br><hr>
+  <hr><br>
 
-  <div ng-repeat = "article in articleCtrl.articles">
+  <div class="articles" ng-repeat = "article in articleCtrl.articles">
     <div ng-hide="editorEnabled">
-    <span id="artloc">  {{article.location}} </span> </br></br>
+    <span id="artloc"> &#9658; {{article.location}} </span> </br></br>
       <span id="artbody"> {{article.body}} </span> </br>
       <span id="artvisit">  Visited by: <b>{{article.username}}</b> on {{article.date_traveled | date: 'longDate'}} </span>
     </br></br>
@@ -35,20 +35,11 @@
     </div>
     <div ng-show="editorEnabled">
       <form ng-submit= "articleCtrl.editArticle(article)">
-          <!-- <input class="search" places-auto-complete types="['geocode']"
-          on-place-changed="findLocation()" ng-model="articleCtrl.editedArticle.location"
-            placeholder="{{article.location}}"><br/> -->
-        <!-- <input type="text" ng-model="articleCtrl.editedArticle.location"
-          placeholder="{{article.location}}"><br/> -->
+
           <textarea rows="6" cols="50" ng-model = "articleCtrl.editedArticle.body"
             placeholder="{{article.body}}"></textarea></br>
 
-        <!-- <input type="text" ng-model="articleCtrl.editedArticle.latitude"
-          placeholder="{{article.latitude}}"><br/>
-        <input type="text"  ng-model="articleCtrl.editedArticle.longitude"
-          placeholder="{{article.longitude}}"><br/> -->
-        <!-- <input type="date" ng-model="articleCtrl.editedArticle.date_traveled"
-          value="{{article.date_traveled | date:'yyyy-MM-dd' }}"><br/> -->
+
         <input type="submit" class="linkbutton" value="Submit Edit">
       </form><br>
       <form ng-submit="articleCtrl.deleteArticle(article)">
@@ -57,23 +48,25 @@
       <a href="#" class="linkbutton" ng-click="editorEnabled=!editorEnabled">Cancel</a>
     </div></br>
       <span> Comments: </span></br>
+
         <span ng-repeat = "comment in article.comments">
-          <span>{{comment.body}} by <b>{{comment.username}}</b></span></br> </span></br>
+          <span>{{comment.body}} by <b>{{comment.username}}</b></span><br> </span><br>
 
           <button class="linkbutton" ng-click="commenter=true">Comment</button>
           <div ng-show="commenter">
             <div ng-controller="CommentsController as commentCtrl">
-            <form ng-submit="commentCtrl.createComment()">
-            <textarea rows="6" cols="50" ng-model="commentCtrl.newCommentBody"/></textarea>
-            <br/>
-            <input type="submit" class="linkbutton" value="Submit Comment" />
 
-            </form>
+              <form ng-submit="commentCtrl.createComment()">
+                <textarea rows="6" cols="50" ng-model="commentCtrl.newCommentBody"></textarea>
+                <br/>
+                <input type="submit" class="linkbutton" value="Submit Comment" />
+              </form>
             </div>
-              <button class="linkbutton" ng-click="commenter=false">Cancel Comment</button>
+            <button class="linkbutton" ng-click="commenter=false">Cancel Comment</button>
+          </div>
+          <hr>
+<br>
+        </div>
       </div>
-    <hr>
-  </div>
-</div>
 
-</main>
+    </main>

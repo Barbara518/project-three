@@ -161,7 +161,8 @@ app.controller('ArticlesController', ['$http', '$scope', '$location', function($
   }
 
   this.editArticle = function (article) {
-    console.log(this.editedArticle)
+    // console.log(article)
+    // console.log(this)
     // console.log(this.editedArticle)
     // console.log(this.editedArticle.date_traveled, article.date_traveled)
     $http.patch('/articles/'+ article.id, {
@@ -174,13 +175,12 @@ app.controller('ArticlesController', ['$http', '$scope', '$location', function($
       }
     }).success(function(data){
       // console.log("edited!!!")
-      //refresh transgression data once PATCH is complete
       controller.getArticles();
     });
   }
 
   this.deleteArticle = function (article) {
-    // console.log(article)
+    console.log(article)
 
     $http.delete('/articles/'+ article.id, {
 
@@ -189,7 +189,6 @@ app.controller('ArticlesController', ['$http', '$scope', '$location', function($
       // console.log(data);
       // console.log("deleted!!!")
       controller.getArticles()
-      //refresh transgression data once PATCH is complete
       // controller.getArticles();
     }).error(function(data, status) {
       controller.getArticles()
