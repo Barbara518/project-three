@@ -104,6 +104,7 @@ app.controller('ArticlesController', ['$http', '$scope', '$location', function($
        )
        var mapOptions = {
                  zoom: 4,
+                 scrollwheel:false,
                  center: new google.maps.LatLng(lat,lng),
                  mapTypeId: google.maps.MapTypeId.TERRAIN
              }

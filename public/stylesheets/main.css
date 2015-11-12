@@ -30,6 +30,35 @@ header {
 b {
   color: red;
 }
+
+#search    {
+  border-radius: 1px;
+  width: 30em;
+  height: 2.5em;
+  border-style: solid;
+  border-width: thin;
+  border-color: lightgray;
+font-size: 1em;
+}
+#expiry {
+  border-radius: 1px;
+  width: 15em;
+  height: 2.5em;
+  border-style: solid;
+  border-width: thin;
+  border-color: lightgray;
+font-size: 1.2em;
+text-align: justify;
+}
+
+textarea {
+border-style: ridge;
+border-width: thin;
+font-style: normal;
+font-size: 1em;
+
+
+}
 footer {
 background-image: url('/images/navbg.png');
 border-style: solid;
