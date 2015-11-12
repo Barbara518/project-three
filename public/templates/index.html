@@ -30,7 +30,7 @@
     <div ng-hide="editorEnabled">
     <span id="artloc"> &#9658; {{article.location}} </span> </br></br>
       <span id="artbody"> {{article.body}} </span> </br>
-      <span id="artvisit">  Visited by: <b>{{article.username}}</b> on {{article.date_traveled | date: 'longDate'}} </span>
+      <span id="artvisit">  Visited by: <b>{{article.username}}</b> on {{article.date_traveled | date: 'MMMM yyyy'}} </span>
     </br></br>
     <div ng-show="articleCtrl.user === article.username">
     <a href="#" class='linkbutton' ng-click="editorEnabled=!editorEnabled">Edit</a>
