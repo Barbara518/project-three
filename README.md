@@ -24,11 +24,15 @@
 The Ruby application was built first followed by the creation of the models (users, articles, and comments). All CRUD functionality was originally done in Rails with ERB pages. After the controllers were funtional we began to build jbuilder JSON files in preperation for Angularjs pages. Basic controllers for angular were built in the angular.js file. After successfully rendering our articles we started to build routes with Angularjs ngRoutes. Getting the Google Maps API to work was the following challenge and then we styled the app.
 
 ##Links
-[Project 3 Heroku link](https://secure-depths-2496.herokuapp.com)
-[Project 3 Wirefame](https://github.com/Barbara518/project-three/blob/development/Project3Mockup.pdf)
+- [Project 3 Heroku link](https://secure-depths-2496.herokuapp.com)
+- [Project 3 Wirefame](https://github.com/Barbara518/project-three/blob/development/Project3Mockup.pdf)
 
 ##Features We Would Like To Add
 
-- Link in markers that takes you to the article it belongs to.
+- Link in marker infowindows that takes you to the article it belongs to.
 - Limit articles view to 10 and have next and previous buttons to navigate entries.
 - Search feature.
+- Have the map hover down and stay in the window when looking for travel tip.
+- Edit create or comment right from the marker infowindow.
+- Password verfication.
+- Animated cursor with a little spinning world near the bottom.
