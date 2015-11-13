@@ -2,7 +2,7 @@
 <% if current_user %>
 <% redirect_local %>
 <%end%>
-
+<div id="cursor"></div>
 <div  id="overflowhidder">
 
   <header>
@@ -71,4 +71,17 @@
 
 <script>
 $('#signupbutton').click(function (event) {$('#signup-form').toggleClass('hidden')})
+
+var cursorOffset = {
+   left : -5, top  : -20
+}
+// this is why i'm retared....-km  css("background-color", "yellow");
+$('#overflowhidder').on("mousemove", function (e) {
+  $('#cursor').css("display","block"),
+  $('#cursor').offset({
+     left: (e.pageX - cursorOffset.left), top : (e.pageY - cursorOffset.top)
+  })
+
+});
+
 </script>
