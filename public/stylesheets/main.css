@@ -159,28 +159,6 @@ h2 {
   cursor: pointer;
 }
 
-.welbutton {
-  text-transform: uppercase;
-  font-size: 1em;
-  overflow: hidden;
-  background-color: rgba(200, 200, 200, 0.5);
-  text-decoration: none;
-  color: #333333;
-  border-radius: 2px;
-  color: #ffffff;
-  border: solid #000000 1px;
-  padding: 4px 10px 4px 10px;
-  margin: 2px;
-  height: 1.8em;
-  min-width: 4.5em;
-  transition: all 1.0s ease;
-}
-
-.welbutton:hover {
-  background: #000000;
-  text-decoration: none;
-  cursor: pointer;
-}
 
 form, input {
   display: inline-block;
