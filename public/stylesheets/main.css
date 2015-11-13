@@ -36,6 +36,8 @@ header {
 
 b {
   color: red;
+  font-weight: bolder;
+  font-size: 1.3em;
 }
 
 #search {
@@ -171,10 +173,21 @@ form, input {
 }
 
 #artloc {
+  font-weight: bolder;
   margin-left: 6.5%;
   margin-top: 15%;
   font-size: 1.75em;
 }
+#artbody {
+font-size: 1.2em;
+font-weight: bolder;
+}
+
+#artvisit {
+  margin-top:1em;
+  font-weight: bolder;
+
+ }
 
 .hidden {
   display:none;
@@ -183,9 +196,3 @@ form, input {
 #spacer {
   margin-top: 80px;
 }
-
-/*to be used later for improvements*/
-/*
-artbody {  }
-artvisit {  }
-*/
