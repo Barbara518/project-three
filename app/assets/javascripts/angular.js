@@ -220,7 +220,6 @@ app.controller('CommentsController', ['$http', '$scope', function($http, $scope)
       }
     }).success(function(data){
       // console.log("added!!!")
-      //refresh transgression data once POST is complete
       $scope.$parent.articleCtrl.getArticles();
 
     }).error(function (err){
